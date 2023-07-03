@@ -12,15 +12,16 @@ export const metadata: Metadata = {
 		default: metaTitle,
 		template: `%s | ${metaTitle}`,
 	},
+	metadataBase: new URL(`https://${websiteDomain}`),
 	description: metaDescription,
 	openGraph: {
 		title: process.env.NEXT_PUBLIC_DOMAIN,
 		description: metaDescription,
-		url: `https://${websiteDomain}`,
+		url: `/`,
 		siteName: websiteDomain,
 		images: [
 			{
-				url: `https://${websiteDomain}/android-chrome-512x512.png`,
+				url: `/android-chrome-512x512.png`,
 				width: 1920,
 				height: 1080,
 			},
@@ -45,11 +46,6 @@ export const metadata: Metadata = {
 	},
 	manifest: "/site.webmanifest",
 	icons: [
-		{ 
-			url: "/favicon.ico",
-			type: "image/x-icon",
-			rel: "icon" 
-		},
 		{ 
 			url: "/apple-touch-icon.png",
 			type: "image/png",
@@ -108,9 +104,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={[poppins.variable].join(" ")}>
 			<body
-				className="bg-black"
+				className="bg-secondary bg-dotted-pattern bg-fixed bg-no-repeat bg-cover"
 			>
-				{children}
+				<div className="bg-header-background">
+					{children}
+				</div>
 				<Analytics />
 			</body>
 		</html>

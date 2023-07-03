@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Experience from './components/Experience'
 
 export default function Home() {
   return (
@@ -28,7 +29,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
+      <div className="relative flex place-items-center h-50vh w-full">
         <Image
           className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
           src="/logo.svg"
@@ -39,7 +40,49 @@ export default function Home() {
         />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+      <div className="mx-auto max-w-3xl md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl">
+        <div className="flex items-center space-x-5">
+          <div className="flex-shrink-0">
+            <div className="relative">
+              <Image
+                className="h-16 w-16 rounded-full"
+                width={64}
+                height={64}
+                src="/avatar_square.png"
+                alt="image-avatar"
+              />
+              <span className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true" />
+            </div>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-canary-500">Ricardo Cooper</h1>
+            <p className="text-sm font-medium text-gray-500">
+              Applied for{' '}
+              <a href="#" className="text-gray-900">
+                Front End Developer
+              </a>{' '}
+              on <time dateTime="2020-08-25">August 25, 2020</time>
+            </p>
+          </div>
+        </div>
+        <div className="justify-stretch mt-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-primary px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+          >
+            Disqualify
+          </button>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+          >
+            Advance to offer
+          </button>
+        </div>
+      </div>
+      <Experience />
+
+      <div className="mb-32 grid text-left lg:mb-0 lg:grid-cols-4 lg:text-left bg-canary-500">
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"

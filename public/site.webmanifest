@@ -1,6 +1,7 @@
 {
     "name": "Illia Hloza Developer Portfolio",
     "short_name": "Illia Hloza Portfolio",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
