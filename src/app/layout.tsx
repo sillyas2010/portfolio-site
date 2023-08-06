@@ -24,10 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={[poppins.variable].join(' ')}>
-      <body className="bg-secondary bg-dotted-pattern bg-fixed bg-no-repeat bg-cover">
+      <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          <div className="bg-header-background">{children}</div>
+          {children}
           <Analytics />
         </StyledComponentsRegistry>
       </body>

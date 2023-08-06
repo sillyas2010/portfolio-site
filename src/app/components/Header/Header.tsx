@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   IconDefinition,
   faAddressCard,
@@ -11,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import * as S from './styled'
+import Link from 'next/link'
 
 type NavItem = {
   title: string
@@ -54,30 +54,32 @@ const nav: NavItem[] = [
 export default function Header() {
   return (
     <S.Header>
-      <div className="relative flex place-items-center">
-        <a href="#">
+      <S.Content>
+        <S.NavLink href="#">
           <Image
-            className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+            className="relative"
             src="/logo.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
             priority
           />
-        </a>
-      </div>
-      <nav>
-        <ul>
-          {nav.map(({ title, link, icon }) => (
-            <li key={`${title}_${link}`}>
-              <a href={link}>
-                {!!icon && <FontAwesomeIcon icon={icon} />}
-                {title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        </S.NavLink>
+        <S.Nav>
+          <S.NavList>
+            {nav.map(({ title, link, icon }) => (
+              <S.NavListItem key={`${title}_${link}`}>
+                <Link href={link} passHref legacyBehavior>
+                  <S.NavLink>
+                    {!!icon && <S.NavItemIcon icon={icon} />}
+                    {title}
+                  </S.NavLink>
+                </Link>
+              </S.NavListItem>
+            ))}
+          </S.NavList>
+        </S.Nav>
+      </S.Content>
     </S.Header>
   )
 }
