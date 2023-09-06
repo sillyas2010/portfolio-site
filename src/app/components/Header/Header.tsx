@@ -1,53 +1,32 @@
 import React from 'react'
 import Image from 'next/image'
-import {
-  IconDefinition,
-  faAddressCard,
-  faUser,
-  faTimeline,
-  faBusinessTime,
-  faFileSignature,
-} from '@fortawesome/free-solid-svg-icons'
-import { faReact } from '@fortawesome/free-brands-svg-icons'
 import * as S from './styled'
-import Link from 'next/link'
-
-type NavItem = {
-  title: string
-  link: string
-  icon?: IconDefinition
-}
+import { Nav, NavItem } from '@/app/components/Nav'
 
 const nav: NavItem[] = [
   {
     title: 'Me',
     link: '#me',
-    icon: faUser,
   },
   {
     title: 'About',
     link: '#about',
-    icon: faAddressCard,
   },
   {
     title: 'Experience',
     link: '#exp',
-    icon: faTimeline,
   },
   {
     title: 'Technologies',
     link: '#tech',
-    icon: faReact,
   },
   {
     title: 'Projects',
     link: '#projects',
-    icon: faBusinessTime,
   },
   {
     title: 'Contact',
     link: '#contact',
-    icon: faFileSignature,
   },
 ]
 
@@ -65,20 +44,7 @@ export default function Header() {
             priority
           />
         </S.NavLink>
-        <S.Nav>
-          <S.NavList>
-            {nav.map(({ title, link, icon }) => (
-              <S.NavListItem key={`${title}_${link}`}>
-                <Link href={link} passHref legacyBehavior>
-                  <S.NavLink>
-                    {!!icon && <S.NavItemIcon icon={icon} />}
-                    {title}
-                  </S.NavLink>
-                </Link>
-              </S.NavListItem>
-            ))}
-          </S.NavList>
-        </S.Nav>
+        <Nav items={nav} />
       </S.Content>
     </S.Header>
   )

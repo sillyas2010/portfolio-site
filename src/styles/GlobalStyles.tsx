@@ -5,7 +5,7 @@ import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
 const CustomStyles = createGlobalStyle({
   body: {
-    ...tw`dark:bg-bgDark bg-bgLight dark:text-bgLight text-bgDark antialiased`,
+    ...tw`dark:bg-bgDark bg-bgLight dark:text-bgLight text-bgDark antialiased w-full`,
   },
 })
 

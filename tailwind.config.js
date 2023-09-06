@@ -42,7 +42,7 @@ module.exports = {
         display: ['var(--font-poppins)'],
       },
       boxShadow: {
-        navToggle: 'inset 0 0 0 1em, 0 -5px, 0 5px',
+        navToggle: 'inset 0 0 0 1em, 0 -6px, 0 6px',
         navToggleActive: 'inset 0 0 0 1em',
       },
       height: {

@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import Experience from './components/Experience'
+// import Experience from './components/Experience'
 import Header from './components/Header'
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <Experience />
+        {/* <Experience /> */}
 
         <div className="mb-32 grid text-left lg:mb-0 lg:grid-cols-4 lg:text-left bg-canary-500">
           <a

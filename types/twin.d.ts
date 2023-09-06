@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import 'twin.macro'
+import { ComponentPropsWithRef, ComponentType } from 'react'
 import styledImport, { CSSProp, css as cssImport } from 'styled-components'
 
 declare module 'twin.macro' {
@@ -28,4 +29,7 @@ declare global {
       as?: string | Element
     }
   }
+  type StyledComponentType<T = ElementType, P = Record> = ComponentType<
+    ComponentPropsWitRef<ElementType> & P
+  >
 }
