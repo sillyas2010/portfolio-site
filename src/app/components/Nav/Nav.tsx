@@ -18,6 +18,10 @@ type Props = {
 export default function Nav({ items }: Props) {
   const [activeLink, setActiveLink] = useState('#')
   const [isMobileActive, setMobileActive] = useState(false)
+  const setActiveLinkMobile = (link: string) => {
+    setActiveLink(link)
+    setMobileActive(false)
+  }
 
   useEffect(() => {
     setActiveLink(window?.location?.hash)
@@ -53,7 +57,7 @@ export default function Nav({ items }: Props) {
         wrapperProps={{ $isActive: isMobileActive }}
         List={S.MobileNavList}
         ListItemLink={S.MobileNavLink}
-        setActiveLink={setActiveLink}
+        setActiveLink={setActiveLinkMobile}
         activeLink={activeLink}
       />
     </S.Nav>

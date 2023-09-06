@@ -1,5 +1,5 @@
 'use client'
-import React, { FC, ElementType, MouseEventHandler, Fragment } from 'react'
+import React, { ElementType, MouseEventHandler, Fragment } from 'react'
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import { NavListItem } from './styled'
@@ -14,7 +14,7 @@ type Props = {
   items: NavItem[]
   Wrapper?: StyledComponentType
   wrapperProps?: Record<string, unknown>
-  List: FC
+  List: StyledComponentType
   ListItem?: StyledComponentType
   ListItemLink: StyledComponentType<
     ElementType,
