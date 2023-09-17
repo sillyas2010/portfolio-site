@@ -2,12 +2,14 @@
 import Image from 'next/image'
 // import Experience from './components/Experience'
 import Header from './components/Header'
+import Me from './components/Me/Me'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="flex min-h-screen flex-col items-center justify-between px-24">
+        <Me />
         <div className="mx-auto max-w-3xl md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl">
           <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">

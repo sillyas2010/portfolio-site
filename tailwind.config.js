@@ -42,6 +42,7 @@ module.exports = {
         display: ['var(--font-poppins)'],
       },
       boxShadow: {
+        avatar: 'inset 0 0 0 9px rgba(0, 0, 0, 30%)',
         navToggle: 'inset 0 0 0 1em, 0 -6px, 0 6px',
         navToggleActive: 'inset 0 0 0 1em',
       },
@@ -53,6 +54,15 @@ module.exports = {
       },
       width: {
         container: '80rem',
+      },
+      animation: {
+        avatar: 'avatar 4s ease-in-out infinite',
+      },
+      keyframes: {
+        avatar: {
+          '0%, 100%': { 'border-radius': '60% 40% 30% 70%/60% 30% 70% 40%' },
+          '50%': { 'border-radius': '45% 75% 85% 55%/65% 75% 45% 75%' },
+        },
       },
     },
   },
