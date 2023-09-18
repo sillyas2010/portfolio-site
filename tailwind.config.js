@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: [
@@ -37,12 +38,15 @@ module.exports = {
         bgLight: 'white',
         bgDark: '#0a0915',
       },
+      content: {
+        empty: '',
+      },
       fontFamily: {
         sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
         display: ['var(--font-poppins)'],
       },
       boxShadow: {
-        avatar: 'inset 0 0 0 9px rgba(0, 0, 0, 30%)',
+        avatar: 'inset 0 0 0 9px rgb(0, 0, 0)',
         navToggle: 'inset 0 0 0 1em, 0 -6px, 0 6px',
         navToggleActive: 'inset 0 0 0 1em',
       },
@@ -56,15 +60,35 @@ module.exports = {
         container: '80rem',
       },
       animation: {
-        avatar: 'avatar 4s ease-in-out infinite',
+        avatar: 'avatar 6s ease-in-out infinite',
+        typing:
+          'typewriter 3.5s ease infinite, blinkTextCursor .5s ease infinite',
       },
       keyframes: {
         avatar: {
           '0%, 100%': { 'border-radius': '60% 40% 30% 70%/60% 30% 70% 40%' },
           '50%': { 'border-radius': '45% 75% 85% 55%/65% 75% 45% 75%' },
         },
+        typewriter: {
+          '50%': { left: 0 },
+          to: { left: '100%' },
+        },
+        blinkTextCursor: {
+          from: {
+            'border-left': '1px solid rgba(255,255,255,.75)',
+          },
+          to: { 'border-left-color': 'transparent' },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.text-balance': {
+          'text-wrap': 'balance',
+        },
+      })
+    }),
+  ],
 }
