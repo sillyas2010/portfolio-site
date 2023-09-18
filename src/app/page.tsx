@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col items-center justify-between px-24">
+      <main className="flex min-h-screen flex-col items-center justify-between px-8 md:px-24">
         <Me />
         <div className="mx-auto max-w-3xl md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl">
           <div className="flex items-center space-x-5">

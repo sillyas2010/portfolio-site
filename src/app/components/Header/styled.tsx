@@ -5,7 +5,7 @@ export const Header = styled.header`
 `
 
 export const Content = styled.section`
-  ${tw`mx-auto flex justify-between w-full max-w-container`}
+  ${tw`mx-auto flex justify-between w-full max-w-screen-lg`}
 `
 
 export const NavLink = styled.a<{ $isActive?: boolean }>`

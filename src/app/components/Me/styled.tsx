@@ -9,33 +9,33 @@ export const Content = styled.section`
 `
 
 export const InfoContainer = styled.article`
-  ${tw`flex justify-between`}
+  ${tw`grid grid-cols-4 md:grid-rows-1 grid-rows-2 gap-3 mx-auto mt-24 max-w-screen-md`}
 `
 
 export const DescriptionContainer = styled.div`
-  ${tw`w-2/3`}
+  ${tw`md:col-span-3 md:row-start-1 col-span-4 col-start-1 row-start-2`}
+`
+
+export const AvatarContainer = styled.div`
+  ${tw`md:text-right md:col-start-4 col-start-1 col-span-4 row-start-1`}
 `
 
 export const AvatarWrapper = styled.picture`
-  ${tw`after:[content:''] after:absolute after:top-0 after:w-full after:h-full after:overflow-hidden after:animate-avatar after:shadow-avatar`}
-  ${tw`relative animate-avatar overflow-hidden `}
+  ${tw`after:content-empty after:absolute after:top-0 after:w-full after:h-full after:overflow-hidden after:animate-avatar after:shadow-avatar after:opacity-50`}
+  ${tw`inline-flex relative animate-avatar overflow-hidden`}
 `
 
 export const Avatar = tw``
 
 export const Name = styled.h3`
-  ${tw`font-bold text-5xl`}
+  ${tw`font-bold text-5xl mb-2`}
 `
 
-export const SubTitle = styled.h4`
-  ${tw``}
+export const SubTitle = styled.div`
+  ${tw`relative pl-3 sm:pl-20 mb-2 text-xl`}
+  ${tw`before:content-empty before:absolute before:left-0 before:top-1/2 before:w-2 sm:before:w-16 before:h-px before:bg-bgLight`}
 `
 
 export const Description = styled.h5`
-  ${tw`[text-wrap:balance]`}
-`
-
-export const NavLink = styled.a<{ $isActive?: boolean }>`
-  ${tw`flex items-center dark:text-white text-black`}
-  ${tw`focus:text-primary hover:text-primary hover:opacity-80`}
+  ${tw`text-balance leading-7`}
 `
