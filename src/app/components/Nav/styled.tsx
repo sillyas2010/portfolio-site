@@ -35,9 +35,9 @@ export const NavToggle = styled.button<{ $isActive?: boolean }>(
   ({ $isActive }) => [
     tw`md:hidden block relative cursor-pointer w-6 h-4 bg-transparent dark:text-white text-black z-30`,
 
-    tw`transition-all [transition-duration:.3s]`,
-    tw`before:[content:''] before:absolute before:transition-all before:[transition-duration:.3s]`,
-    tw`after:[content:''] after:absolute after:transition-all after:[transition-duration:.3s]`,
+    tw`transition-[transform] duration-[.3s]`,
+    tw`before:content-empty before:absolute before:transition-[transform, box-shadow] before:duration-[.3s]`,
+    tw`after:content-empty after:absolute after:transition-[transform, box-shadow] after:duration-[.3s]`,
 
     tw`before:w-full before:h-0.5 before:left-0 before:top-1/2`,
     tw`after:w-full after:h-0.5 after:left-0 after:top-1/2 after:shadow-navToggle`,
