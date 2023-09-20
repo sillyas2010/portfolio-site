@@ -22,10 +22,10 @@ export const AvatarContainer = styled.div`
 
 export const AvatarWrapper = styled.picture`
   ${tw`after:content-empty after:absolute after:top-0 after:w-full after:h-full after:overflow-hidden after:animate-avatar after:shadow-avatar after:opacity-50`}
-  ${tw`inline-flex relative animate-avatar overflow-hidden`}
+  ${tw`inline-flex h-full aspect-[1] relative animate-avatar overflow-hidden`}
 `
 
-export const Avatar = tw``
+export const Avatar = tw`w-full`
 
 export const Name = styled.h3`
   ${tw`font-bold text-5xl mb-2`}
