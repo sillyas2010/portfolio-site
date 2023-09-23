@@ -12,6 +12,7 @@ type ButtonProps = {
   iconLeft?: ReactNode
   iconRight?: ReactNode
   className?: string
+  disabled?: boolean
   children: ReactNode
   as?: 'a' | 'button'
 } & S.StyledButton
@@ -26,6 +27,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       href,
       iconLeft,
       iconRight,
+      disabled,
       children,
       ...rest
     }: ButtonProps,
@@ -48,8 +50,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
 
     if (href) {
       return (
-        <Link href={href} legacyBehavior passHref>
-          <S.Button as="a" {...rest} {...styling} ref={ref}>
+        <Link
+          href={disabled ? href : 'javascript:void(0);'}
+          aria-disabled={disabled}
+          legacyBehavior
+          passHref
+        >
+          <S.Button as="a" disabled={disabled} {...rest} {...styling} ref={ref}>
             {content}
           </S.Button>
         </Link>
@@ -57,7 +64,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     }
 
     return (
-      <S.Button {...rest} {...styling} ref={ref}>
+      <S.Button
+        disabled={disabled}
+        aria-disabled={disabled}
+        {...rest}
+        {...styling}
+        ref={ref}
+      >
         {content}
       </S.Button>
     )

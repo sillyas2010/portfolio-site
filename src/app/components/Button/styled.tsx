@@ -23,9 +23,9 @@ const baseStyles = {
 }
 
 const variantStyles = {
-  [variants.primary]: tw`px-4 py-2 bg-canary-500 outline-none border-2 border-transparent rounded text-white font-medium active:scale-95 hover:bg-canary-600 focus:bg-canary-600 focus:ring-2 focus:ring-canary-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:cursor-not-allowed`,
-  [variants.secondary]: tw`px-4 py-2 bg-white outline-none border-2 border-canary-500 rounded text-canary-500 font-medium active:scale-95 hover:bg-canary-600 hover:text-white focus:ring-2 focus:ring-canary-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed`,
-  [variants.outline]: tw`px-4 py-2 bg-transparent outline-none border-2 border-canary-400 rounded text-canary-500 font-medium active:scale-95 hover:bg-canary-600 hover:text-white hover:border-transparent focus:bg-canary-600 focus:text-white focus:border-transparent focus:ring-2 focus:ring-canary-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed`,
+  [variants.primary]: tw`bg-orange-500 border-transparent text-white hover:enabled:bg-orange-600 focus:enabled:opacity-80 focus:enabled:ring-orange-600`,
+  [variants.secondary]: tw`bg-white border-orange-500 text-orange-500 hover:enabled:bg-orange-600 hover:enabled:border-orange-600 hover:enabled:text-white focus:enabled:border-transparent focus:enabled:ring-orange-600`,
+  [variants.outline]: tw`bg-transparent border-orange-400 text-orange-500 hover:enabled:bg-orange-600 hover:enabled:text-white hover:enabled:border-transparent focus:enabled:text-white focus:enabled:border-transparent focus:enabled:ring-orange-600`,
 }
 
 export type StyledButton = {
@@ -36,7 +36,9 @@ export type StyledButton = {
 }
 
 export const Button = styled.button<StyledButton>(() => [
-  tw`relative will-change-[transform, colors] transition-[transform, colors] duration-200 overflow-hidden max-w-full`,
+  tw`relative px-4 py-2 will-change-[transform, colors] transition-[transform, colors] outline-none border-2 rounded font-medium duration-200 overflow-hidden max-w-full`,
+  tw`active:enabled:scale-95 focus:ring-2 focus:ring-offset-2`,
+  tw`disabled:cursor-not-allowed disabled:opacity-60`,
   ({ $style = styles.solid }) => baseStyles[$style],
   ({ $variant = variants.secondary }) => variantStyles[$variant],
   ({ $isWide }) => ($isWide ? 'px-8' : null),
