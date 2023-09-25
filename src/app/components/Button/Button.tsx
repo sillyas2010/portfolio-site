@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React, {
+  MouseEvent,
   ComponentPropsWithRef,
   ElementType,
   ReactNode,
@@ -14,6 +15,7 @@ type ButtonProps = {
   className?: string
   disabled?: boolean
   children: ReactNode
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void
   as?: 'a' | 'button'
 } & S.StyledButton
 
@@ -27,6 +29,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       iconLeft,
       iconRight,
       disabled,
+      onClick,
       children,
       ...rest
     }: ButtonProps,
@@ -39,9 +42,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     const content = (
       <>
         {iconLeft}
-        <span className={hasIcon ? `${iconLeft ? 'ml' : 'mr'}-2.5` : undefined}>
-          {children}
-        </span>
+        {!!children && (
+          <span
+            className={hasIcon ? `${iconLeft ? 'ml' : 'mr'}-2.5` : undefined}
+          >
+            {children}
+          </span>
+        )}
         {iconRight}
       </>
     )
@@ -54,7 +61,14 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
           legacyBehavior
           passHref
         >
-          <S.Button as="a" disabled={disabled} {...rest} {...styling} ref={ref}>
+          <S.Button
+            as="a"
+            disabled={disabled}
+            {...rest}
+            {...styling}
+            onClick={onClick}
+            ref={ref}
+          >
             {content}
           </S.Button>
         </Link>
@@ -67,6 +81,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
         aria-disabled={disabled}
         {...rest}
         {...styling}
+        onClick={onClick}
         ref={ref}
       >
         {content}

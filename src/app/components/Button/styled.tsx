@@ -18,6 +18,9 @@ const variantStyles = {
   [variants.outline]: tw`bg-transparent border-orange-400 text-orange-500 hover:enabled:bg-orange-600 hover:enabled:text-white hover:enabled:border-transparent dark:focus:enabled:text-white focus:enabled:border-transparent focus:enabled:ring-orange-600`,
 }
 
+const wideStyles = tw`px-8`
+const fullStyles = tw`w-full`
+
 export type StyledButton = {
   $variant?: OneOfButtonVariants
   $isWide?: boolean
@@ -29,6 +32,6 @@ export const Button = styled.button<StyledButton>(() => [
   tw`active:enabled:scale-95 focus:ring-2 focus:ring-offset-2`,
   tw`disabled:cursor-not-allowed disabled:opacity-60`,
   ({ $variant = variants.secondary }) => variantStyles[$variant],
-  ({ $isWide }) => ($isWide ? 'px-8' : null),
-  ({ $isFull }) => ($isFull ? 'w-full' : null),
+  ({ $isWide }) => ($isWide ? wideStyles : null),
+  ({ $isFull }) => ($isFull ? fullStyles : null),
 ])
