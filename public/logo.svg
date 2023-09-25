@@ -1,17 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" 
-xmlns:xlink="http://www.w3.org/1999/xlink" 
-xmlns:svgjs="http://svgjs.com/svgjs" width="317.2" height="58.6" x="0" y="0" viewBox="0 0 
-370 68" xml:space="preserve" class="css-1j8o68f"><defs 
-id="SvgjsDefs10198"></defs><g id="SvgjsG10199" 
-featurekey="symbolFeature-0" 
-transform="matrix(1.2724368210990902,0,0,1.2724368210990902,-17.857880023616918,-26.573189995382656)" 
-fill="#cbd5e1"><title xmlns="http://www.w3.org/2000/svg">28-08-2015 - 
-code</title><desc xmlns="http://www.w3.org/2000/svg">Created with 
-Sketch.</desc><g xmlns="http://www.w3.org/2000/svg" stroke="none" 
-stroke-width="1" fill="none" fill-rule="evenodd" 
-xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" 
-sketch:type="MSPage"><g sketch:type="MSArtboardGroup" fill="#cbd5e1"><path 
-d="M83.9420361,50.0031761 C84.0455988,49.2560782 83.807666,48.4723838 
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink"
+  xmlnsSvgjs="http://svgjs.com/svgjs" width="317.2" height="58.6" x="0" y="0" viewBox="0 0 
+370 68" xmlSpace="preserve" class="css-1j8o68f">
+  <defs id="SvgjsDefs10198"></defs>
+  <g id="SvgjsG10199" featurekey="symbolFeature-0"
+    transform="matrix(1.2724368210990902,0,0,1.2724368210990902,-17.857880023616918,-26.573189995382656)"
+    fill="currentColor">
+    <title xmlns="http://www.w3.org/2000/svg">28-08-2015 -
+      code</title>
+    <desc xmlns="http://www.w3.org/2000/svg">Created with
+      Sketch.</desc>
+    <g xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+      xmlnsSketch="http://www.bohemiancoding.com/sketch/ns" sketchType="MSPage">
+      <g sketchType="MSArtboardGroup" fill="currentColor">
+        <path d="M83.9420361,50.0031761 C84.0455988,49.2560782 83.807666,48.4723838 
 83.2325201,47.8972379 L68.0203173,32.6850351 C67.0506811,31.7153989 
 65.4688221,31.7109131 64.4959279,32.6838072 C63.5162509,33.6634843 
 63.5235834,35.2346243 64.4971558,36.2081966 L78.2881642,49.9992051 
@@ -31,11 +32,13 @@ M54.9901856,27.6944914 C55.3662544,26.661251 56.5053113,26.1272656
 57.5505036,26.5076845 C58.5884594,26.8854695 59.1258109,28.0271719 
 58.7489561,29.062572 L43.0098144,72.3055086 C42.6337456,73.338749 
 41.4946887,73.8727344 40.4494964,73.4923155 C39.4115406,73.1145305 
-38.8741891,71.9728281 39.2510439,70.937428 L54.9901856,27.6944914 Z" 
-sketch:type="MSShapeGroup"></path></g></g></g><g id="SvgjsG10200" 
-featurekey="nameFeature-0" 
-transform="matrix(0.8760287562066617,0,0,0.8760287562066617,105.61222168355742,-10.197525582002672)" 
-fill="#cbd5e1"><path d="M3.8672 40 l0 -27.988 l5.0781 0 l0 27.988 l-5.0781 
+38.8741891,71.9728281 39.2510439,70.937428 L54.9901856,27.6944914 Z" sketchType="MSShapeGroup"></path>
+      </g>
+    </g>
+  </g>
+  <g id="SvgjsG10200" featurekey="nameFeature-0"
+    transform="matrix(0.8760287562066617,0,0,0.8760287562066617,105.61222168355742,-10.197525582002672)" fill="currentColor">
+    <path d="M3.8672 40 l0 -27.988 l5.0781 0 l0 27.988 l-5.0781 
 0 z M28.38524140625 35.4883 l9.082 0 l0 4.5117 l-14.16 0 l0 -27.988 
 l5.0781 0 l0 23.477 z M53.9579953125 35.4883 l9.082 0 l0 4.5117 l-14.16 0 
 l0 -27.988 l5.0781 0 l0 23.477 z M74.45264921875 40 l0 -27.988 l5.0781 0 
@@ -54,10 +57,11 @@ M251.50245390625 35.4883 l14.375 0 l0 4.5117 l-20.488 0 l0 -4.043 l14.141
 -19.453 l-14.102 0 l0 -4.4922 l20.117 0 l0 4.0625 z M296.6256953125 40 
 l-2.1484 -6.0742 l-12.07 0 l-2.1484 6.0742 l-5.2148 0 l10.313 -27.988 
 l6.1719 0 l10.293 27.988 l-5.1953 0 z M283.9306953125 29.628999999999998 
-l9.0234 0 l-4.5117 -12.754 z"></path></g><g id="SvgjsG10201" 
-featurekey="sloganFeature-0" 
-transform="matrix(1.3083802524808057,0,0,1.3083802524808057,108.27175542868875,37.30809588730348)" 
-fill="#f97316"><path d="M4.3652 20 l-3.8086 -13.926 l2.4316 0 l3.0078 
+l9.0234 0 l-4.5117 -12.754 z"></path>
+  </g>
+  <g id="SvgjsG10201" featurekey="sloganFeature-0"
+    transform="matrix(1.3083802524808057,0,0,1.3083802524808057,108.27175542868875,37.30809588730348)" fill="#f97316">
+    <path d="M4.3652 20 l-3.8086 -13.926 l2.4316 0 l3.0078 
 11.006 l3.291 -11.006 l2.0117 0 l3.2813 11.006 l3.0273 -11.006 l2.4219 0 
 l-3.8086 13.926 l-2.9102 0 l-3.0176 -9.6484 l-3.0176 9.6484 l-2.9102 0 z 
 M33.6396234375 8.154 l-5.4102 0 l0 3.8574 l4.7852 0 l0 2.0605 l-4.7852 0 
@@ -95,4 +99,6 @@ l7.7734 0 l0 2.0801 z M197.308634375 20 l-3.6133 -6.2109 l-1.5039 0 l0
 c0 1.9434 -1.1523 3.252 -2.998 3.584 l4.0137 6.2988 l-2.7441 0 z 
 M192.191434375 8.047 l0 4.0137 l2.1582 0 c1.709 0 2.4414 -0.80078 2.4414 
 -1.9922 c0 -1.1816 -0.73242 -2.0215 -2.4414 -2.0215 l-2.1582 0 
-z"></path></g></svg>
+z"></path>
+  </g>
+</svg>

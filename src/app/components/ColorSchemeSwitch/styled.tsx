@@ -1,10 +1,10 @@
 import tw, { styled } from 'twin.macro'
 
 export const SwitcherWrapper = styled.div`
-  ${tw`md:hidden`}
+  ${tw`md:hidden mx-2`}
 
   & > button {
-    ${tw`rounded-full p-2 mx-4`}
+    ${tw`rounded-full p-2`}
   }
 `
 export const IconWrapper = styled.div`

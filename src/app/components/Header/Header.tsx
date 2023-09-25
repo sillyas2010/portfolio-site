@@ -1,7 +1,7 @@
 import React from 'react'
-import Image from 'next/image'
 import * as S from './styled'
 import { Nav, NavItem } from '@/app/components/Nav'
+import LogoImage from '@/public/logo.svg'
 
 const nav: NavItem[] = [
   {
@@ -35,14 +35,9 @@ export default function Header() {
     <S.Header>
       <S.Content>
         <S.NavLink href="#">
-          <Image
-            className="relative"
-            src="/logo.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
+          <S.LogoWrapper>
+            <LogoImage />
+          </S.LogoWrapper>
         </S.NavLink>
         <Nav items={nav} />
       </S.Content>

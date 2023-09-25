@@ -11,7 +11,7 @@ export const NavListItem = styled.li``
 
 export const MobileNavWrapper = styled.div<{ $isActive?: boolean }>(
   ({ $isActive }) => [
-    tw`absolute top-0 left-0 bottom-0 right-0 h-screen w-screen dark:bg-black bg-white flex items-center justify-center`,
+    tw`absolute top-0 left-0 bottom-0 right-0 h-screen w-screen dark:bg-bgDark bg-bgLight flex items-center justify-center`,
     tw`transform -translate-y-full transition-transform duration-300 ease-in-out`,
     $isActive && tw`-translate-y-0`,
   ],
@@ -41,7 +41,7 @@ export const NavToggleWrapper = styled.div`
 
 export const NavToggleIcon = styled.i<{ $isActive?: boolean }>(
   ({ $isActive }) => [
-    tw`block relative w-6 h-4`,
+    tw`block relative w-6 h-4 -translate-y-px`,
 
     tw`transition-[transform] duration-[.3s]`,
     tw`before:content-empty before:absolute before:transition-[transform, box-shadow] before:duration-[.3s]`,
@@ -50,7 +50,7 @@ export const NavToggleIcon = styled.i<{ $isActive?: boolean }>(
     tw`before:w-full before:h-0.5 before:left-0 before:top-1/2`,
     tw`after:w-full after:h-0.5 after:left-0 after:top-1/2 after:shadow-navToggle`,
 
-    $isActive && tw`scale-110 -translate-y-px -rotate-45`,
+    $isActive && tw`scale-110 -rotate-45`,
     $isActive && tw`before:shadow-navToggleActive before:rotate-90`,
     $isActive && tw`after:shadow-navToggleActive`,
   ],
