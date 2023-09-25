@@ -4,6 +4,9 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import NavList from './NavList'
 
 import * as S from './styled'
+import ColorSchemeSwitch from '../ColorSchemeSwitch/ColorSchemeSwitch'
+import Button from '../Button/Button'
+import { variants } from '../Button'
 
 export type NavItem = {
   title: string
@@ -46,10 +49,13 @@ export default function Nav({ items }: Props) {
         activeLink={activeLink}
       />
 
-      <S.NavToggle
-        $isActive={isMobileActive}
-        onClick={() => setMobileActive(prev => !prev)}
-      />
+      <ColorSchemeSwitch isRaw />
+
+      <S.NavToggleWrapper onClick={() => setMobileActive(prev => !prev)}>
+        <Button $variant={variants.raw}>
+          <S.NavToggleIcon $isActive={isMobileActive} />
+        </Button>
+      </S.NavToggleWrapper>
 
       <NavList
         items={items}

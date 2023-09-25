@@ -31,9 +31,17 @@ export const MobileNavLink = styled(NavLink)`
   ${tw`text-5xl`}
 `
 
-export const NavToggle = styled.button<{ $isActive?: boolean }>(
+export const NavToggleWrapper = styled.div`
+  ${tw`md:hidden z-30`}
+
+  & > button {
+    ${tw`block rounded-full px-2 py-3`}
+  }
+`
+
+export const NavToggleIcon = styled.i<{ $isActive?: boolean }>(
   ({ $isActive }) => [
-    tw`md:hidden block relative cursor-pointer w-6 h-4 bg-transparent dark:text-white text-black z-30`,
+    tw`block relative w-6 h-4`,
 
     tw`transition-[transform] duration-[.3s]`,
     tw`before:content-empty before:absolute before:transition-[transform, box-shadow] before:duration-[.3s]`,
@@ -42,7 +50,7 @@ export const NavToggle = styled.button<{ $isActive?: boolean }>(
     tw`before:w-full before:h-0.5 before:left-0 before:top-1/2`,
     tw`after:w-full after:h-0.5 after:left-0 after:top-1/2 after:shadow-navToggle`,
 
-    $isActive && tw`scale-110 -translate-x-px -rotate-45`,
+    $isActive && tw`scale-110 -translate-y-px -rotate-45`,
     $isActive && tw`before:shadow-navToggleActive before:rotate-90`,
     $isActive && tw`after:shadow-navToggleActive`,
   ],
