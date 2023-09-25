@@ -1,16 +1,16 @@
 import tw, { styled } from 'twin.macro'
 
-export const DarkIcon = tw``
-export const LightIcon = tw``
+export const SwitcherWrapper = styled.div`
+  ${tw`md:hidden`}
 
-export const Label = styled.label`
-  ${tw``}
+  & > button {
+    ${tw`rounded-full p-2 mx-4`}
+  }
 `
+export const IconWrapper = styled.div`
+  ${tw`w-6 h-6`}
 
-export const Input = styled.input`
-  ${tw``}
-`
-
-export const Text = styled.span`
-  ${tw`sr-only`}
+  & > svg {
+    ${tw`w-6 h-6`}
+  }
 `
