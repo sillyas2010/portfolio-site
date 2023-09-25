@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const colorScheme = {
   dark: 'DARK',
@@ -6,24 +6,23 @@ export const colorScheme = {
 } as const
 
 export default function useColorScheme(isInitialDark = true) {
-  const [isDark, setIsDark] = useState(isInitialDark)
+  const [isDark, setIsDark] = useState<boolean>(isInitialDark)
 
-  const setColorScheme = (scheme: keyof typeof colorScheme) => {
-    const isDark = scheme === 'dark'
-
+  useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')
     }
-
-    setIsDark(isDark)
-  }
+  }, [isDark])
 
   return {
     isDark,
     isLight: !isDark,
     current: isDark ? colorScheme.dark : colorScheme.light,
-    setColorScheme,
+    setColorScheme: (scheme: keyof typeof colorScheme) =>
+      setIsDark(scheme === 'dark'),
+    setIsDark: (isDark: boolean) => setIsDark(isDark),
+    toggleColorScheme: () => setIsDark(isDark => !isDark),
   }
 }
