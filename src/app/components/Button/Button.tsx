@@ -22,7 +22,6 @@ type ButtonRef<C extends ElementType> = ComponentPropsWithRef<C>['ref']
 const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
   <C extends React.ElementType>(
     {
-      $style = S.styles.solid,
       $variant = S.variants.secondary,
       href,
       iconLeft,
@@ -34,8 +33,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     ref: ButtonRef<C>,
   ) => {
     const styling: S.StyledButton = {
-      $style,
-      $variant: $style === S.styles.outline ? S.variants.outline : $variant,
+      $variant,
     }
     const hasIcon = !!(iconLeft || iconRight)
     const content = (
