@@ -38,17 +38,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     const styling: S.StyledButton = {
       $variant,
     }
-    const hasIcon = !!(iconLeft || iconRight)
     const content = (
       <>
         {iconLeft}
-        {!!children && (
-          <span
-            className={hasIcon ? `${iconLeft ? 'ml' : 'mr'}-2.5` : undefined}
-          >
-            {children}
-          </span>
-        )}
+        {!!children && <span>{children}</span>}
         {iconRight}
       </>
     )

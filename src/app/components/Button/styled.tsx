@@ -28,7 +28,7 @@ export type StyledButton = {
 }
 
 export const Button = styled.button<StyledButton>(() => [
-  tw`relative px-5 py-2 will-change-[transform, colors] transition-[transform, colors] outline-[2px] outline-offset-[2px] border-2 rounded font-semibold duration-200 overflow-hidden max-w-full`,
+  tw`relative flex items-center gap-2.5 px-5 py-2 will-change-[transform, colors] transition-[transform, colors] outline-[2px] outline-offset-[2px] border-2 rounded font-semibold duration-200 overflow-hidden max-w-full`,
   tw`active:enabled:scale-95 focus:ring-2 focus:ring-offset-2`,
   tw`disabled:cursor-not-allowed disabled:opacity-60`,
   ({ $variant = variants.secondary }) => variantStyles[$variant],
