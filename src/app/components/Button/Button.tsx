@@ -5,6 +5,7 @@ import React, {
   ElementType,
   ReactNode,
   forwardRef,
+  useCallback,
 } from 'react'
 import * as S from './styled'
 
@@ -35,6 +36,16 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     }: ButtonProps,
     ref: ButtonRef<C>,
   ) => {
+    const handleClick = useCallback<Required<ButtonProps>['onClick']>(
+      (e, ...rest) => {
+        if (onClick && !disabled) {
+          onClick(e, ...rest)
+        } else {
+          e.preventDefault()
+        }
+      },
+      [onClick, disabled],
+    )
     const styling: S.StyledButton = {
       $variant,
     }
@@ -48,18 +59,14 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
 
     if (href) {
       return (
-        <Link
-          href={disabled ? href : 'javascript:void(0);'}
-          aria-disabled={disabled}
-          legacyBehavior
-          passHref
-        >
+        <Link href={href} legacyBehavior passHref>
           <S.Button
             as="a"
+            aria-disabled={disabled ?? undefined}
             disabled={disabled}
             {...rest}
             {...styling}
-            onClick={onClick}
+            onClick={handleClick}
             ref={ref}
           >
             {content}
@@ -74,7 +81,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
         aria-disabled={disabled}
         {...rest}
         {...styling}
-        onClick={onClick}
+        onClick={handleClick}
         ref={ref}
       >
         {content}
