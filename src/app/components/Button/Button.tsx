@@ -65,8 +65,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
         <Link href={href} legacyBehavior passHref>
           <S.Button
             as="a"
-            aria-disabled={disabled ?? undefined}
-            disabled={disabled}
+            aria-disabled={disabled || undefined}
             {...rest}
             {...styling}
             onClick={handleClick}
@@ -81,7 +80,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     return (
       <S.Button
         disabled={disabled}
-        aria-disabled={disabled}
+        aria-disabled={disabled || undefined}
         {...rest}
         {...styling}
         onClick={handleClick}
