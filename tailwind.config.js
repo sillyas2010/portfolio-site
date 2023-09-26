@@ -13,9 +13,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'dotted-pattern': 'url("/background-pattern.svg")',
-        'header-background':
-          'linear-gradient(180deg, rgba(217, 254, 84, 0.3) 0%, rgba(217, 254, 84, 0) 50%)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',

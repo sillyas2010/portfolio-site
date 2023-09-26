@@ -1,8 +1,8 @@
 import React from 'react'
 import useColorScheme from '@/app/hooks/useColorScheme'
 import * as S from './styled'
-import LightIcon from '@/public/light.svg'
-import DarkIcon from '@/public/dark.svg'
+import LightIcon from '@/public/icons/light.svg'
+import DarkIcon from '@/public/icons/dark.svg'
 import { variants } from '@/app/components/Button'
 import Button from '@/app/components/Button'
 
