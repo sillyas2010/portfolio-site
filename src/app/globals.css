@@ -6,7 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --color-primary: theme(colors.canary.500);
+  --color-primary: theme(colors.orange.500);
   --color-secondary: theme(colors.neutral.900);
 }
 

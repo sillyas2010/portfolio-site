@@ -14,7 +14,7 @@ export const Content = styled.section`
   ${tw`mx-auto flex justify-between w-full max-w-screen-lg`}
 `
 
-export const NavLink = styled.a<{ $isActive?: boolean }>`
+export const NavLink = styled.a`
   ${tw`flex items-center dark:text-white text-black`}
-  ${tw`focus:text-primary hover:text-primary hover:opacity-80`}
+  ${tw`hover:opacity-80`}
 `
