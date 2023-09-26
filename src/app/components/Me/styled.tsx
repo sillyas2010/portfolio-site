@@ -21,7 +21,7 @@ export const AvatarContainer = styled.div`
 `
 
 export const AvatarWrapper = styled.picture`
-  ${tw`after:content-empty after:absolute after:top-0 after:w-full after:h-full after:overflow-hidden after:animate-avatar after:shadow-avatar after:opacity-50`}
+  ${tw`after:content-empty after:absolute after:top-0 after:w-full after:h-full after:overflow-hidden after:animate-avatar after:shadow-avatar after:opacity-5 dark:after:opacity-50`}
   ${tw`inline-flex max-w-full w-56 aspect-[1] relative animate-avatar overflow-hidden`}
 `
 

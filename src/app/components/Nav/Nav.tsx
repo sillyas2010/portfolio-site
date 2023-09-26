@@ -4,9 +4,8 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import NavList from './NavList'
 
 import * as S from './styled'
-import ColorSchemeSwitch from '../ColorSchemeSwitch/ColorSchemeSwitch'
-import Button from '../Button/Button'
-import { variants } from '../Button'
+import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch/ColorSchemeSwitch'
+import Button, { variants } from '@/app/components/Button'
 
 export type NavItem = {
   title: string

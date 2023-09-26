@@ -1,7 +1,10 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
 import * as S from './styled'
-import Typewriter from '../TypeWriter/Typewriter'
+import Typewriter from '@/app/components/TypeWriter/Typewriter'
+import Button, { variants } from '@/app/components/Button'
+import IconWrapper, { sizes } from '@/app/components/IconWrapper'
+import SendIcon from '@/public/icons/send.svg'
 
 const name = 'Illia Hloza'
 const subTitle = 'Frontend Developer (React)'
@@ -26,7 +29,7 @@ export default function Me({ Footer = Fragment }) {
               {name}
               <Image
                 className="inline-block -mt-3"
-                src="/hello.svg"
+                src="/icons/hello.svg"
                 alt="hello"
                 width={42}
                 height={42}
@@ -37,6 +40,15 @@ export default function Me({ Footer = Fragment }) {
               <Typewriter text={subTitle} />
             </S.SubTitle>
             <S.Description>{description}</S.Description>
+            <div className="mt-12">
+              <Button
+                href="#contact"
+                $variant={variants.primary}
+                iconRight={<IconWrapper $size={sizes.lg} icon={<SendIcon />} />}
+              >
+                Contact Me
+              </Button>
+            </div>
           </S.DescriptionContainer>
           <S.AvatarContainer>
             <S.AvatarWrapper>
