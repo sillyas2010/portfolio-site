@@ -38,13 +38,16 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
   ) => {
     const handleClick = useCallback<Required<ButtonProps>['onClick']>(
       (e, ...rest) => {
-        if (onClick && !disabled) {
-          onClick(e, ...rest)
-        } else {
+        if (disabled || !(onClick || href)) {
           e.preventDefault()
+          return false
+        }
+
+        if (onClick) {
+          onClick(e, ...rest)
         }
       },
-      [onClick, disabled],
+      [onClick, href, disabled],
     )
     const styling: S.StyledButton = {
       $variant,
