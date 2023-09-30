@@ -74,6 +74,7 @@ module.exports = {
         avatar: 'avatar 6s ease-in-out infinite',
         typing:
           'typewriter 3.5s ease infinite, blinkTextCursor .5s ease infinite',
+        scrollDown: 'scrollDown 1.5s ease-in-out infinite',
       },
       keyframes: {
         avatar: {
@@ -89,6 +90,19 @@ module.exports = {
             'border-left': '1px solid rgba(255,255,255,.75)',
           },
           to: { 'border-left-color': 'transparent' },
+        },
+        scrollDown: {
+          '0%': {
+            top: '44%',
+            opacity: 0,
+          },
+          '50%': {
+            opacity: 1,
+          },
+          '100%': {
+            top: '79.5%',
+            opacity: 0,
+          },
         },
       },
     },

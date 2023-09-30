@@ -2,14 +2,15 @@
 import Image from 'next/image'
 // import Experience from './components/Experience'
 import Header from './components/Header'
-import Me from './components/Me/Me'
+import Me from './components/Me'
+import ScrollDown from './components/ScrollDown'
 
 export default function Home() {
   return (
     <>
       <Header />
       <main className="flex min-h-screen flex-col items-center justify-between px-8 md:px-24">
-        <Me />
+        <Me Footer={ScrollDown} />
         <div className="mx-auto max-w-3xl md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl">
           <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">
@@ -55,7 +56,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-        {/* <Experience /> */}
 
         <div className="mb-32 grid text-left lg:mb-0 lg:grid-cols-4 lg:text-left bg-canary-500">
           <a
