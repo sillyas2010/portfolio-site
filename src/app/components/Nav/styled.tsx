@@ -11,9 +11,9 @@ export const NavListItem = styled.li``
 
 export const MobileNavWrapper = styled.div<{ $isActive?: boolean }>(
   ({ $isActive }) => [
-    tw`absolute top-0 left-0 bottom-0 right-0 h-screen w-screen dark:bg-bgDark bg-bgLight flex items-center justify-center`,
-    tw`transform -translate-y-full transition-transform duration-300 ease-in-out`,
-    $isActive && tw`-translate-y-0`,
+    tw`opacity-0 absolute top-0 left-0 bottom-0 right-0 h-screen w-screen dark:bg-bgDark bg-bgLight flex items-center justify-center`,
+    tw`transform -translate-y-full transition-[transform, opacity] duration-500 ease-in-out`,
+    $isActive && tw`opacity-100 -translate-y-0`,
   ],
 )
 
