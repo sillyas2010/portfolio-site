@@ -12,6 +12,10 @@ export const InfoContainer = styled.article`
   ${tw`grid grid-cols-4 sm:grid-cols-3 md:grid-rows-1 grid-rows-none gap-3 mx-auto my-auto md:my-0 md:mt-24 max-w-screen-md`}
 `
 
+export const SocialsContainer = styled.div`
+  ${tw``}
+`
+
 export const DescriptionContainer = styled.div`
   ${tw`col-span-4 col-start-1 row-start-2 md:col-span-2 md:row-start-1 `}
 `

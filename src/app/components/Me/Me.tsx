@@ -1,11 +1,14 @@
 import React, { Fragment, useRef } from 'react'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
 import * as S from './styled'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
 import Button, { variants } from '@/app/components/Button'
 import IconWrapper, { sizes } from '@/app/components/IconWrapper'
+import Socials from '@/app/components/Socials'
 import SendIcon from '@/public/icons/send.svg'
 import { getCareerYears } from './utils'
+import { NavItem } from '@/app/types'
 
 const name = 'Illia Hloza'
 const subTitle = 'Frontend Developer (React)'
@@ -28,6 +31,14 @@ const description = (
   </blockquote>
 )
 
+const socials: NavItem[] = [
+  {
+    title: '',
+    link: '',
+    faIcon: faGithub,
+  },
+]
+
 interface Props {
   Footer: StyledComponentType
 }
@@ -39,6 +50,9 @@ export default function Me({ Footer = Fragment }: Props) {
     <S.Wrapper ref={wrapperRef}>
       <S.Content>
         <S.InfoContainer>
+          <S.SocialsContainer>
+            <Socials items={socials} />
+          </S.SocialsContainer>
           <S.DescriptionContainer>
             <S.Name>
               {name}

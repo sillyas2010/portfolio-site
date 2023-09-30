@@ -1,14 +1,8 @@
 'use client'
 import React, { ElementType, MouseEventHandler, Fragment } from 'react'
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import { NavListItem } from './styled'
-
-export type NavItem = {
-  title: string
-  link: string
-  icon?: IconDefinition
-}
+import { NavItem } from '@/app/types'
 
 type Props = {
   items: NavItem[]

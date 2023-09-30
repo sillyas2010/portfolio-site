@@ -1,17 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import NavList from './NavList'
+import { NavItem } from '@/app/types'
 
 import * as S from './styled'
 import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch/ColorSchemeSwitch'
 import Button, { variants } from '@/app/components/Button'
-
-export type NavItem = {
-  title: string
-  link: string
-  icon?: IconDefinition
-}
 
 type Props = {
   items: NavItem[]
