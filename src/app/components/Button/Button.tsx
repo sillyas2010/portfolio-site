@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React, {
-  MouseEvent,
   ComponentPropsWithRef,
   ElementType,
+  MouseEvent,
   ReactNode,
   forwardRef,
   useCallback,

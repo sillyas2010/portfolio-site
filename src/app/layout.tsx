@@ -1,9 +1,9 @@
-import './globals.css'
-import { Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { Poppins } from 'next/font/google'
+import './globals.css'
 
-import GlobalStyles from '@/styles/GlobalStyles'
 import StyledComponentsRegistry from '@/lib/registry'
+import GlobalStyles from '@/styles/GlobalStyles'
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'

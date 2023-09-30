@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import 'twin.macro'
 import { ComponentPropsWithRef, ComponentType } from 'react'
 import styledImport, { CSSProp, css as cssImport } from 'styled-components'
-import { TwStyle } from 'twin.macro'
+import 'twin.macro'
 
 interface TwinProps {
   as?: string | Element

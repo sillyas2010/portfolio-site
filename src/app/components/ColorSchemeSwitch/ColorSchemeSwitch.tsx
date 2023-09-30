@@ -1,10 +1,9 @@
-import React from 'react'
+import Button, { variants } from '@/app/components/Button'
 import useColorScheme from '@/app/hooks/useColorScheme'
-import * as S from './styled'
-import LightIcon from '@/public/icons/light.svg'
 import DarkIcon from '@/public/icons/dark.svg'
-import { variants } from '@/app/components/Button'
-import Button from '@/app/components/Button'
+import LightIcon from '@/public/icons/light.svg'
+import React from 'react'
+import * as S from './styled'
 
 export default function ColorSchemeSwitch({
   isInitialDark = true,

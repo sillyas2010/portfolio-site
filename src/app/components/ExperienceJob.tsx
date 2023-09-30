@@ -1,12 +1,12 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 type ExperienceJobProps = {
-  title: string;
-  company: string;
-  icon: any;
-  descriptions: string[];
-  direction: "right" | "left";
-};
+  title: string
+  company: string
+  icon: string
+  descriptions: string[]
+  direction: 'right' | 'left'
+}
 
 const ExperienceJob = ({
   title,
@@ -30,7 +30,7 @@ const ExperienceJob = ({
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ExperienceJob;
+export default ExperienceJob

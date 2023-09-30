@@ -1,7 +1,7 @@
-import React from 'react'
-import * as S from './styled'
 import Button, { variants } from '@/app/components/Button'
 import { NavItem } from '@/app/types'
+import React from 'react'
+import * as S from './styled'
 
 interface SocialsProps {
   items: NavItem[]

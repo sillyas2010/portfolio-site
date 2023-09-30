@@ -1,6 +1,6 @@
+import Button, { variants } from '@/app/components/Button'
 import React, { RefObject } from 'react'
 import * as S from './styled'
-import Button, { variants } from '@/app/components/Button'
 
 interface ScrollDownProps {
   wrapperRef: RefObject<HTMLElement>

@@ -1,8 +1,8 @@
 'use client'
-import React, { ElementType, MouseEventHandler, Fragment } from 'react'
-import Link from 'next/link'
-import { NavListItem } from './styled'
 import { NavItem } from '@/app/types'
+import Link from 'next/link'
+import React, { ElementType, Fragment, MouseEventHandler } from 'react'
+import { NavListItem } from './styled'
 
 type Props = {
   items: NavItem[]

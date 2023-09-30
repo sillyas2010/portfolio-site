@@ -1,5 +1,5 @@
-import tw, { styled } from 'twin.macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import tw, { styled } from 'twin.macro'
 
 export const Socials = styled.div`
   ${tw``}

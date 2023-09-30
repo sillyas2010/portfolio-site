@@ -1,11 +1,11 @@
 'use client'
+import { NavItem } from '@/app/types'
 import React, { useEffect, useState } from 'react'
 import NavList from './NavList'
-import { NavItem } from '@/app/types'
 
-import * as S from './styled'
-import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch/ColorSchemeSwitch'
 import Button, { variants } from '@/app/components/Button'
+import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch/ColorSchemeSwitch'
+import * as S from './styled'
 
 type Props = {
   items: NavItem[]

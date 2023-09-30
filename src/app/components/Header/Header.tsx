@@ -1,8 +1,8 @@
+import { Nav } from '@/app/components/Nav'
+import { NavItem } from '@/app/types'
+import LogoImage from '@/public/logo.svg'
 import React from 'react'
 import * as S from './styled'
-import { Nav } from '@/app/components/Nav'
-import LogoImage from '@/public/logo.svg'
-import { NavItem } from '@/app/types'
 
 const nav: NavItem[] = [
   {
