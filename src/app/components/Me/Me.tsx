@@ -1,27 +1,42 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useRef } from 'react'
 import Image from 'next/image'
 import * as S from './styled'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
 import Button, { variants } from '@/app/components/Button'
 import IconWrapper, { sizes } from '@/app/components/IconWrapper'
 import SendIcon from '@/public/icons/send.svg'
+import { getCareerYears } from './utils'
 
 const name = 'Illia Hloza'
 const subTitle = 'Frontend Developer (React)'
+// from 15.07.2017 till now
+const careerYears = getCareerYears(new Date(2017, 7 - 1, 15), new Date())
+
 const description = (
   <blockquote>
     <cite>
-      &quot;The way a team plays as a whole determines its success. You may have
-      the greatest bunch of individual stars in the world, but if they
-      don&apos;t play together, the club won&apos;t be worth a dime.&quot;{' '}
+      I have over {careerYears} years of commercial experience as a Front End
+      React Developer (including Full Stack Node.js knowledge) and 6.5 years of
+      academic learning experience at a local technological university. I hold a
+      Master&apos;s degree in Software Engineering from ZPS University of
+      Ukraine and have an upper intermediate level of proficiency in written and
+      spoken English. I am highly motivated, detail-oriented, and a responsible
+      employee who is always interested in building mutually-beneficial
+      partnerships. Have any questions or offers? Feel free to contact me on
+      social networks or by email 24/7.
     </cite>
-    <footer>- Babe Ruth</footer>
   </blockquote>
 )
 
-export default function Me({ Footer = Fragment }) {
+interface Props {
+  Footer: StyledComponentType
+}
+
+export default function Me({ Footer = Fragment }: Props) {
+  const wrapperRef = useRef(null)
+
   return (
-    <S.Wrapper>
+    <S.Wrapper ref={wrapperRef}>
       <S.Content>
         <S.InfoContainer>
           <S.DescriptionContainer>
@@ -63,7 +78,9 @@ export default function Me({ Footer = Fragment }) {
             </S.AvatarWrapper>
           </S.AvatarContainer>
         </S.InfoContainer>
-        <Footer />
+        <div className="mt-12 sm:mt-auto md:mt-20">
+          <Footer wrapperRef={wrapperRef} />
+        </div>
       </S.Content>
     </S.Wrapper>
   )

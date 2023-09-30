@@ -1,15 +1,15 @@
 import tw, { styled } from 'twin.macro'
 
 export const Wrapper = styled.section`
-  ${tw`h-screen w-full py-20`}
+  ${tw`portrait:min-h-screen portrait:sm:h-screen lg:h-auto lg:min-h-0 w-full py-20`}
 `
 
 export const Content = styled.section`
-  ${tw`h-full w-full mx-auto flex flex-col justify-between max-w-container`}
+  ${tw`h-full lg:h-auto w-full mx-auto flex flex-col justify-between max-w-container`}
 `
 
 export const InfoContainer = styled.article`
-  ${tw`grid grid-cols-4 sm:grid-cols-3 md:grid-rows-1 grid-rows-none gap-3 mx-auto mt-24 max-w-screen-md`}
+  ${tw`grid grid-cols-4 sm:grid-cols-3 md:grid-rows-1 grid-rows-none gap-3 mx-auto my-auto md:my-0 md:mt-24 max-w-screen-md`}
 `
 
 export const DescriptionContainer = styled.div`
