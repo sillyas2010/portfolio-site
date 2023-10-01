@@ -1,25 +1,35 @@
 import Button, { variants } from '@/app/components/Button'
+import IconWrapper from '@/app/components/IconWrapper'
 import { NavItem } from '@/app/types'
 import React from 'react'
 import * as S from './styled'
 
-interface SocialsProps {
+interface SocialsProps extends S.StyledSocials {
   items: NavItem[]
 }
 
-const Socials = ({ items }: SocialsProps) => {
+const Socials = ({
+  items = [],
+  $variant = S.variants.horizontal,
+}: SocialsProps) => {
   return (
-    <S.Socials>
+    <S.Socials $variant={$variant}>
       {items.map(({ title, link, icon, faIcon }) =>
         icon || faIcon ? (
           <S.ItemWrapper key={`${title}_${link}`}>
-            <Button $variant={variants.raw} href={link}>
-              {faIcon ? (
-                <S.FaIconWrapper icon={faIcon} />
-              ) : (
-                <S.IconWrapper>{icon}</S.IconWrapper>
-              )}
-            </Button>
+            <Button
+              $variant={variants.raw}
+              target="_blank"
+              title={title}
+              href={link}
+              icon={
+                faIcon ? (
+                  <IconWrapper icon={<S.FaIconWrapper icon={faIcon} />} />
+                ) : (
+                  <IconWrapper icon={icon} />
+                )
+              }
+            />
           </S.ItemWrapper>
         ) : null,
       )}
