@@ -1,35 +1,8 @@
 import { Nav } from '@/app/components/Nav'
-import { NavItem } from '@/app/types'
+import { nav } from '@/app/constants'
 import LogoImage from '@/public/logo.svg'
 import React from 'react'
 import * as S from './styled'
-
-const nav: NavItem[] = [
-  {
-    title: 'Me',
-    link: '#me',
-  },
-  {
-    title: 'About',
-    link: '#about',
-  },
-  {
-    title: 'Experience',
-    link: '#exp',
-  },
-  {
-    title: 'Technologies',
-    link: '#tech',
-  },
-  {
-    title: 'Projects',
-    link: '#projects',
-  },
-  {
-    title: 'Contact',
-    link: '#contact',
-  },
-]
 
 export default function Header() {
   return (
