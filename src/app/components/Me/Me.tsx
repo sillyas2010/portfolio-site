@@ -2,9 +2,8 @@ import Button, { variants } from '@/app/components/Button'
 import IconWrapper, { sizes } from '@/app/components/IconWrapper'
 import Socials from '@/app/components/Socials'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
-import { NavItem } from '@/app/types'
+import { socials } from '@/app/constants'
 import SendIcon from '@/public/icons/send.svg'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
 import React, { Fragment, useRef } from 'react'
 import * as S from './styled'
@@ -30,14 +29,6 @@ const description = (
     </cite>
   </blockquote>
 )
-
-const socials: NavItem[] = [
-  {
-    title: '',
-    link: '',
-    faIcon: faGithub,
-  },
-]
 
 interface Props {
   Footer: StyledComponentType
@@ -72,8 +63,14 @@ export default function Me({ Footer = Fragment }: Props) {
             <div className="mt-12">
               <Button
                 href="#contact"
+                title="Contact Me"
                 $variant={variants.primary}
-                iconRight={<IconWrapper $size={sizes.lg} icon={<SendIcon />} />}
+                iconRight={
+                  <IconWrapper
+                    $size={sizes.lg}
+                    icon={<SendIcon viewBox="0 0 24 24" />}
+                  />
+                }
               >
                 Contact Me
               </Button>

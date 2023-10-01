@@ -7,10 +7,3 @@ export const SwitcherWrapper = styled.div`
     ${tw`rounded-full p-2`}
   }
 `
-export const IconWrapper = styled.div`
-  ${tw`w-6 h-6`}
-
-  & > svg {
-    ${tw`w-6 h-6`}
-  }
-`

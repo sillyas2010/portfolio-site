@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro'
 
 export const Wrapper = styled.section`
-  ${tw`portrait:min-h-screen portrait:sm:h-screen lg:h-auto lg:min-h-0 w-full py-20`}
+  ${tw`portrait:min-h-screen pt-32 portrait:sm:h-screen lg:h-auto lg:min-h-0 w-full sm:pt-20 py-20`}
 `
 
 export const Content = styled.section`
@@ -9,19 +9,22 @@ export const Content = styled.section`
 `
 
 export const InfoContainer = styled.article`
-  ${tw`grid grid-cols-4 sm:grid-cols-3 md:grid-rows-1 grid-rows-none gap-3 mx-auto my-auto md:my-0 md:mt-24 max-w-screen-md`}
+  ${tw`grid md:grid-cols-3 md:grid-rows-1 grid-rows-none gap-3 mx-auto my-auto md:my-0 md:mt-24 max-w-screen-md`}
 `
 
 export const SocialsContainer = styled.div`
-  ${tw``}
+  ${tw`col-start-1 md:col-start-auto row-start-1 md:row-start-2 flex items-center`}
+  & > * {
+    ${tw`flex-col md:flex-row`}
+  }
 `
 
 export const DescriptionContainer = styled.div`
-  ${tw`col-span-4 col-start-1 row-start-2 md:col-span-2 md:row-start-1 `}
+  ${tw`col-span-4 col-start-1 row-start-2 md:row-start-3 md:col-span-2`}
 `
 
 export const AvatarContainer = styled.div`
-  ${tw`col-start-1 col-span-2 row-start-1 md:text-right md:col-start-3`}
+  ${tw`col-start-2 col-span-2 row-start-1 md:text-right md:row-start-3 md:col-start-3`}
 `
 
 export const AvatarWrapper = styled.picture`
