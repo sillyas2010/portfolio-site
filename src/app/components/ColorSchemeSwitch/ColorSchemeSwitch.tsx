@@ -1,4 +1,5 @@
 import Button, { variants } from '@/app/components/Button'
+import IconWrapper from '@/app/components/IconWrapper'
 import useColorScheme from '@/app/hooks/useColorScheme'
 import DarkIcon from '@/public/icons/dark.svg'
 import LightIcon from '@/public/icons/light.svg'
@@ -14,11 +15,13 @@ export default function ColorSchemeSwitch({
   return (
     <S.SwitcherWrapper>
       <Button
+        title={`${isDark ? 'Light' : 'Dark'} theme switcher`}
         $variant={isRaw ? variants.raw : variants.primary}
         onClick={() => toggleColorScheme()}
-      >
-        <S.IconWrapper>{isDark ? <DarkIcon /> : <LightIcon />}</S.IconWrapper>
-      </Button>
+        icon={
+          <IconWrapper>{isDark ? <DarkIcon /> : <LightIcon />}</IconWrapper>
+        }
+      />
     </S.SwitcherWrapper>
   )
 }

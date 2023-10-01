@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { ElementType, Fragment, MouseEventHandler } from 'react'
 import { NavListItem } from './styled'
 
-type Props = {
+interface Props {
   items: NavItem[]
   Wrapper?: StyledComponentType
   wrapperProps?: Record<string, unknown>

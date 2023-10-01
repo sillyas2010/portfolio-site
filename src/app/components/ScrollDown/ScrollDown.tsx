@@ -26,6 +26,7 @@ const ScrollDown = ({ wrapperRef, scrollMargin = 0 }: ScrollDownProps) => {
         $variant={variants.raw}
         onClick={handleClick}
         iconLeft={<S.Icon />}
+        title="Scroll Down"
       >
         Scroll Down ↓
       </Button>

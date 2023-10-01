@@ -7,7 +7,7 @@ import Button, { variants } from '@/app/components/Button'
 import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch/ColorSchemeSwitch'
 import * as S from './styled'
 
-type Props = {
+interface Props {
   items: NavItem[]
 }
 
@@ -45,15 +45,21 @@ export default function Nav({ items }: Props) {
       <ColorSchemeSwitch isRaw />
 
       <S.NavToggleWrapper onClick={() => setMobileActive(prev => !prev)}>
-        <Button $variant={variants.raw}>
-          <S.NavToggleIcon $isActive={isMobileActive} />
-        </Button>
+        <Button
+          $variant={variants.raw}
+          title="Navigation Toggle"
+          icon={<S.NavToggleIcon $isActive={isMobileActive} />}
+        />
       </S.NavToggleWrapper>
 
       <NavList
         items={items}
         Wrapper={S.MobileNavWrapper}
-        wrapperProps={{ $isActive: isMobileActive }}
+        wrapperProps={{
+          $isActive: isMobileActive,
+          'aria-hidden': !isMobileActive,
+          tabIndex: -1,
+        }}
         List={S.MobileNavList}
         ListItemLink={S.MobileNavLink}
         setActiveLink={setActiveLinkMobile}
