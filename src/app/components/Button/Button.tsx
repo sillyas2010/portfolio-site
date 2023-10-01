@@ -2,23 +2,26 @@ import Link from 'next/link'
 import React, {
   ComponentPropsWithRef,
   ElementType,
-  MouseEvent,
+  MouseEventHandler,
   ReactNode,
   forwardRef,
   useCallback,
 } from 'react'
 import * as S from './styled'
 
-type ButtonProps = {
+interface ButtonProps extends S.StyledButton {
   href?: string
+  target?: string
+  title?: string
   iconLeft?: ReactNode
   iconRight?: ReactNode
+  icon?: ReactNode
   className?: string
   disabled?: boolean
-  children: ReactNode
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void
+  children?: ReactNode
+  onClick?: MouseEventHandler<HTMLButtonElement>
   as?: 'a' | 'button'
-} & S.StyledButton
+}
 
 type ButtonRef<C extends ElementType> = ComponentPropsWithRef<C>['ref']
 
@@ -26,9 +29,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
   <C extends React.ElementType>(
     {
       $variant = S.variants.secondary,
+      $type = S.types.text,
+      target,
       href,
       iconLeft,
       iconRight,
+      icon,
+      title,
       disabled,
       onClick,
       children,
@@ -50,29 +57,37 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       [onClick, href, disabled],
     )
     const styling: S.StyledButton = {
+      $type: icon ? S.types.icon : $type,
       $variant,
     }
     const content = (
       <>
-        {iconLeft}
-        {!!children && <span>{children}</span>}
+        {icon || iconLeft}
+        {!!children && styling.$type !== S.types.icon && (
+          <S.Content>{children}</S.Content>
+        )}
         {iconRight}
       </>
     )
 
     if (href) {
+      const handleLinkClick =
+        handleClick as unknown as MouseEventHandler<HTMLAnchorElement>
+
       return (
         <Link href={href} legacyBehavior passHref>
-          <S.Button
-            as="a"
+          <S.Link
             aria-disabled={disabled || undefined}
+            aria-label={title}
+            title={title}
+            target={target}
             {...rest}
             {...styling}
-            onClick={handleClick}
+            onClick={handleLinkClick}
             ref={ref}
           >
             {content}
-          </S.Button>
+          </S.Link>
         </Link>
       )
     }
@@ -81,6 +96,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       <S.Button
         disabled={disabled}
         aria-disabled={disabled || undefined}
+        aria-label={title}
+        title={title}
         {...rest}
         {...styling}
         onClick={handleClick}

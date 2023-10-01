@@ -1,2 +1,2 @@
 export { default } from './Button'
-export { variants } from './styled'
+export { types, variants } from './styled'
