@@ -18,9 +18,7 @@ export default function ColorSchemeSwitch({
         title={`${isDark ? 'Light' : 'Dark'} theme switcher`}
         $variant={isRaw ? variants.raw : variants.primary}
         onClick={() => toggleColorScheme()}
-        icon={
-          <IconWrapper>{isDark ? <DarkIcon /> : <LightIcon />}</IconWrapper>
-        }
+        icon={<IconWrapper icon={isDark ? <DarkIcon /> : <LightIcon />} />}
       />
     </S.SwitcherWrapper>
   )

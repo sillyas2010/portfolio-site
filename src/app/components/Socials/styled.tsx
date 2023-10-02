@@ -1,5 +1,4 @@
 import { OneOfValues } from '@/app/types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tw, { styled } from 'twin.macro'
 
 export const variants = {
@@ -31,8 +30,4 @@ export const ItemWrapper = styled.div`
       ${tw`inline-block w-6 h-6`}
     }
   }
-`
-
-export const FaIconWrapper = styled(FontAwesomeIcon)`
-  ${tw`w-6 h-6`}
 `

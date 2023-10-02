@@ -22,13 +22,7 @@ const Socials = ({
               target="_blank"
               title={title}
               href={link}
-              icon={
-                faIcon ? (
-                  <IconWrapper icon={<S.FaIconWrapper icon={faIcon} />} />
-                ) : (
-                  <IconWrapper icon={icon} />
-                )
-              }
+              icon={<IconWrapper faIcon={faIcon} icon={icon} />}
             />
           </S.ItemWrapper>
         ) : null,

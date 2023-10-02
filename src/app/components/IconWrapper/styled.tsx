@@ -1,4 +1,6 @@
 import { OneOfValues } from '@/app/types'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PropsWithChildren, ReactNode } from 'react'
 import tw, { styled } from 'twin.macro'
 
@@ -30,13 +32,15 @@ const heightStyles = {
 
 export type StyledIconWrapper = PropsWithChildren<{
   icon?: ReactNode
+  faIcon?: IconDefinition
   $size?: OneOfIconSizes
   $width?: OneOfIconSizes
   $height?: OneOfIconSizes
 }>
 
+export const FaIconWrapper = FontAwesomeIcon
+
 export const IconWrapper = styled.span<StyledIconWrapper>`
-  ${tw`inline-block`}
   & > * {
     ${({ $width }) => $width && widthStyles[$width]}
     ${({ $height }) => $height && heightStyles[$height]}
@@ -45,4 +49,5 @@ export const IconWrapper = styled.span<StyledIconWrapper>`
     ${({ $size, $width, $height }) =>
       !!($size || !($width || $height)) && heightStyles[$size || sizes.sm]}
   }
+  ${tw`inline-block [line-height:0]`}
 `
