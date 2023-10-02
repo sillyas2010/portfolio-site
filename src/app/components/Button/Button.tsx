@@ -12,6 +12,7 @@ import * as S from './styled'
 interface ButtonProps extends S.StyledButton {
   href?: string
   target?: string
+  rel?: string
   title?: string
   iconLeft?: ReactNode
   iconRight?: ReactNode
@@ -32,6 +33,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       $type = S.types.text,
       target,
       href,
+      rel,
       iconLeft,
       iconRight,
       icon,
@@ -81,6 +83,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
             aria-label={title}
             title={title}
             target={target}
+            rel={rel}
             {...rest}
             {...styling}
             onClick={handleLinkClick}

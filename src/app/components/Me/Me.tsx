@@ -4,6 +4,7 @@ import Socials from '@/app/components/Socials'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
 import { socials } from '@/app/constants'
 import SendIcon from '@/public/icons/send.svg'
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import React, { Fragment, useRef } from 'react'
 import * as S from './styled'
@@ -18,7 +19,7 @@ const description = (
   <blockquote>
     <cite>
       I have over {careerYears} years of commercial experience as a Front End
-      React Developer (including Full Stack Node.js knowledge) and 6.5 years of
+      Developer (including Full Stack Node.js knowledge) and 6.5 years of
       academic learning experience at a local technological university. I hold a
       Master&apos;s degree in Software Engineering from ZPS University of
       Ukraine and have an upper intermediate level of proficiency in written and
@@ -60,7 +61,7 @@ export default function Me({ Footer = Fragment }: Props) {
               <Typewriter text={subTitle} />
             </S.SubTitle>
             <S.Description>{description}</S.Description>
-            <div className="mt-12">
+            <div className="mt-12 inline-flex flex-col sm:flex-row gap-4">
               <Button
                 href="#contact"
                 title="Contact Me"
@@ -73,6 +74,18 @@ export default function Me({ Footer = Fragment }: Props) {
                 }
               >
                 Contact Me
+              </Button>
+              <Button
+                href="/Illia_Hloza_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download CV"
+                $variant={variants.outline}
+                iconRight={
+                  <IconWrapper $size={sizes.lg} faIcon={faAddressCard} />
+                }
+              >
+                Download CV
               </Button>
             </div>
           </S.DescriptionContainer>
