@@ -6,11 +6,8 @@ import LightIcon from '@/public/icons/light.svg'
 import React from 'react'
 import * as S from './styled'
 
-export default function ColorSchemeSwitch({
-  isInitialDark = true,
-  isRaw = false,
-}) {
-  const { isDark, toggleColorScheme } = useColorScheme(isInitialDark)
+export default function ColorSchemeSwitch({ isRaw = false }) {
+  const { isDark, toggleColorScheme } = useColorScheme()
 
   return (
     <S.SwitcherWrapper>

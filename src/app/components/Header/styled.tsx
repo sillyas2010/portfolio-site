@@ -6,7 +6,7 @@ export const Header = styled.header`
 
 export const LogoWrapper = styled.div`
   & > svg {
-    ${tw`w-48`}
+    ${tw`w-48 md:w-40 lg:w-48`}
   }
 `
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import NavList from './NavList'
 
 import Button, { variants } from '@/app/components/Button'
-import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch/ColorSchemeSwitch'
+import ColorSchemeSwitch from '@/app/components/ColorSchemeSwitch'
 import * as S from './styled'
 
 interface Props {

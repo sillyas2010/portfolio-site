@@ -15,6 +15,7 @@
     }
   },
   "dependencies": {
+    "@boiseitguru/cookie-cutter": "^0.2.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",

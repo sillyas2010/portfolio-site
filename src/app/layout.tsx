@@ -5,6 +5,7 @@ import './globals.css'
 import StyledComponentsRegistry from '@/lib/registry'
 import GlobalStyles from '@/styles/GlobalStyles'
 
+import getServerColorScheme from '@/app/utils/getServerColorScheme'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
@@ -23,7 +24,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={[poppins.variable, 'dark'].join(' ')}>
+    <html
+      lang="en"
+      className={[poppins.variable, getServerColorScheme()].join(' ')}
+    >
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
