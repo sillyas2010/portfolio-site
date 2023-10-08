@@ -16,7 +16,7 @@ export default function WhyMe() {
         <S.ModelWrapper>
           <Canvas>
             <Stage
-              adjustCamera={1.2}
+              adjustCamera={1.4}
               preset="rembrandt"
               intensity={1}
               environment="city"
