@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Header from './components/Header'
 import Me from './components/Me'
 import ScrollDown from './components/ScrollDown'
+import WhyMe from './components/WhyMe'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <main className="flex min-h-screen flex-col items-center justify-between px-8 md:px-16 lg:px-24">
         <Me Footer={ScrollDown} />
+        <WhyMe />
         <div className="mx-auto max-w-3xl md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl">
           <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">
