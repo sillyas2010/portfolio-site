@@ -3,33 +3,12 @@ import IconWrapper, { sizes } from '@/app/components/IconWrapper'
 import Socials from '@/app/components/Socials'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
 import { socials } from '@/app/constants'
+import { careerDescriptionText, name, subTitle } from '@/app/constants/texting'
 import SendIcon from '@/public/icons/send.svg'
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import React, { Fragment, useRef } from 'react'
 import * as S from './styled'
-import { getCareerYears } from './utils'
-
-const name = 'Illia Hloza'
-const subTitle = 'Frontend Developer (React)'
-// from 15.07.2017 till now
-const careerYears = getCareerYears(new Date(2017, 7 - 1, 15), new Date())
-
-const description = (
-  <blockquote>
-    <cite>
-      I have over {careerYears} years of commercial experience as a Front End
-      Developer (including Full Stack Node.js knowledge) and 6.5 years of
-      academic learning experience at a local technological university. I hold a
-      Master&apos;s degree in Software Engineering from ZPS University of
-      Ukraine and have an upper intermediate level of proficiency in written and
-      spoken English. I am highly motivated, detail-oriented, and a responsible
-      employee who is always interested in building mutually-beneficial
-      partnerships. Have any questions or offers? Feel free to contact me on
-      social networks or by email 24/7.
-    </cite>
-  </blockquote>
-)
 
 interface Props {
   Footer: StyledComponentType
@@ -60,7 +39,11 @@ export default function Me({ Footer = Fragment }: Props) {
             <S.SubTitle>
               <Typewriter text={subTitle} />
             </S.SubTitle>
-            <S.Description>{description}</S.Description>
+            <S.Description>
+              <blockquote>
+                <cite>{careerDescriptionText}</cite>
+              </blockquote>
+            </S.Description>
             <div className="mt-12 inline-flex flex-col sm:flex-row gap-4">
               <Button
                 href="#contact"
