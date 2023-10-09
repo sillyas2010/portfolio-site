@@ -5,14 +5,14 @@ Files: macbook.gltf [103.3KB] > macbook.glb [1.57MB] (-1422%)
 Author: akshatmittal (https://sketchfab.com/akshatmittal)
 License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/apple-macbook-air-15-space-gray-2023-e8d82e341c794141a2561c2c9d01d79e
-Title: Apple Macbook Air 15 (Space Gray) 2023
+Title: Apple MacBook Air 15 (Space Gray) 2023
 */
 
 import { useGLTF } from '@react-three/drei'
 import { GroupProps } from '@react-three/fiber'
 import React from 'react'
 
-export default function Macbook(props: GroupProps) {
+export default function MacBook(props: GroupProps) {
   // @ts-expect-error types wrong
   const { nodes, materials } = useGLTF('/3d-models/macbook.glb')
   return (

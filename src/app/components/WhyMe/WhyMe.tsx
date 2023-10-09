@@ -1,12 +1,14 @@
-import Macbook from '@/app/components/3d-models/Macbook'
 import Loader from '@/app/components/Loader'
 import SectionTitle from '@/app/components/SectionTitle'
 import { benefits } from '@/app/constants/whyMe'
-import { OrbitControls, Stage, useProgress } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
+import { useProgress } from '@react-three/drei'
+import dynamic from 'next/dynamic'
 import React from 'react'
 import Tilt from 'react-parallax-tilt'
 import colors from 'tailwindcss/colors'
+
+const LazyMacBookModel = dynamic(() => import('./MacBookModel'), { ssr: false })
+
 import * as S from './styled'
 
 export default function WhyMe() {
@@ -22,23 +24,7 @@ export default function WhyMe() {
             $spinnerSize={0.75}
             $isLoaded={progress >= 100}
           />
-          <Canvas>
-            <Stage
-              adjustCamera={1.4}
-              preset="rembrandt"
-              intensity={1}
-              environment="city"
-            >
-              <Macbook />
-            </Stage>
-            <OrbitControls
-              enableZoom={false}
-              autoRotate={true}
-              autoRotateSpeed={0.5}
-              minPolarAngle={Math.PI / 2}
-              maxPolarAngle={Math.PI / 2}
-            />
-          </Canvas>
+          <LazyMacBookModel />
         </S.ModelWrapper>
         <S.BenefitsList>
           {benefits.map(({ icon, faIcon, title, description }) => (
