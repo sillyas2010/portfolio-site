@@ -1,7 +1,8 @@
 import Macbook from '@/app/components/3d-models/Macbook'
+import Loader from '@/app/components/Loader'
 import SectionTitle from '@/app/components/SectionTitle'
 import { benefits } from '@/app/constants/whyMe'
-import { OrbitControls, Stage } from '@react-three/drei'
+import { OrbitControls, Stage, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import Tilt from 'react-parallax-tilt'
@@ -9,11 +10,18 @@ import colors from 'tailwindcss/colors'
 import * as S from './styled'
 
 export default function WhyMe() {
+  const { progress } = useProgress()
+
   return (
     <S.Wrapper>
       <SectionTitle title="Why me?" description="Pros which make special" />
       <S.Grid>
         <S.ModelWrapper>
+          <Loader
+            $isContentVisible={false}
+            $spinnerSize={0.75}
+            $isLoaded={progress >= 100}
+          />
           <Canvas>
             <Stage
               adjustCamera={1.4}

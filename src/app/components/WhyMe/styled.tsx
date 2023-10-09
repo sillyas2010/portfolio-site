@@ -10,7 +10,7 @@ export const Grid = styled.div`
 `
 
 export const ModelWrapper = styled.div`
-  ${tw`w-full [min-height:480px] sm:w-1/2 sm:min-h-0`}
+  ${tw`relative w-full [min-height:480px] sm:w-1/2 sm:min-h-0`}
 `
 
 export const BenefitsList = styled.div`
