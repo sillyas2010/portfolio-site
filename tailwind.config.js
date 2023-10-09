@@ -20,6 +20,7 @@ module.exports = {
       colors: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
+        react: '#00d8ff',
         canary: {
           50: '#fcffe5',
           100: '#f5ffc7',
