@@ -1,6 +1,5 @@
 'use client'
-import Image from 'next/image'
-// import Experience from './components/Experience'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Me from './components/Me'
 import ScrollDown from './components/ScrollDown'
@@ -14,6 +13,7 @@ export default function Home() {
         <Me Footer={ScrollDown} />
         <WhyMe />
       </main>
+      <Footer />
     </>
   )
 }
