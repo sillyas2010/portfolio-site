@@ -1,6 +1,6 @@
 'use client'
 import { NavItem } from '@/app/types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import NavList from './NavList'
 
 import Button, { variants } from '@/app/components/Button'
@@ -13,6 +13,7 @@ interface Props {
 
 export default function Nav({ items }: Props) {
   const [activeLink, setActiveLink] = useState('#')
+  const savedScroll = useRef(0)
   const [isMobileActive, setMobileActive] = useState(false)
   const setActiveLinkMobile = (link: string) => {
     setActiveLink(link)
@@ -21,13 +22,18 @@ export default function Nav({ items }: Props) {
 
   useEffect(() => {
     setActiveLink(window?.location?.hash)
+    savedScroll.current = window?.scrollY
   }, [])
 
   useEffect(() => {
     if (isMobileActive) {
+      savedScroll.current = window?.scrollY
       document.body.classList.add('fixed')
     } else {
       document.body.classList.remove('fixed')
+      window.scrollTo({
+        top: savedScroll.current,
+      })
     }
   }, [isMobileActive])
 

@@ -18,7 +18,7 @@ export default function Me({ Footer = Fragment }: Props) {
   const wrapperRef = useRef(null)
 
   return (
-    <S.Wrapper ref={wrapperRef}>
+    <S.Wrapper id="me" ref={wrapperRef}>
       <S.Content>
         <S.InfoContainer>
           <S.SocialsContainer>

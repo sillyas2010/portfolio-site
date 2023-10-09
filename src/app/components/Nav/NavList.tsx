@@ -21,6 +21,18 @@ interface Props {
   activeLink: string
 }
 
+type LinkClickEvent = React.MouseEvent<HTMLAnchorElement, MouseEvent>
+
+const scrollToAnchor = (e: LinkClickEvent, title: string, link: string) => {
+  const targetElement = document.querySelector(link)
+
+  if (targetElement) {
+    e.preventDefault()
+    targetElement.scrollIntoView({ behavior: 'smooth' })
+    history.pushState({}, title, link)
+  }
+}
+
 export default function NavList({
   items,
   Wrapper = Fragment,
@@ -38,7 +50,10 @@ export default function NavList({
           <ListItem key={`${title}_${link}`}>
             <Link href={link} passHref legacyBehavior>
               <ListItemLink
-                onClick={() => setActiveLink(link)}
+                onClick={(e: LinkClickEvent) => {
+                  scrollToAnchor(e, title, link)
+                  setActiveLink(link)
+                }}
                 $isActive={activeLink === link}
               >
                 {title}
