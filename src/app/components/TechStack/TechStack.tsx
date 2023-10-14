@@ -7,15 +7,27 @@ import * as S from './styled'
 export default function TechStack() {
   return (
     <S.TechStack>
-      <SectionTitle title="Why me?" description="Pros which make special" />
+      <SectionTitle title="Tech stack" description="Technologies I use" />
       <S.Content>
-        <IconsSlider title="General" items={general} />
-        <IconsSlider
-          title="Frameworks / Libraries"
-          direction={directions.reverse}
-          items={libraries}
-        />
-        <IconsSlider title="Tools" items={tools} />
+        <S.SliderWrapper>
+          <IconsSlider
+            title={<S.SliderTitle>General</S.SliderTitle>}
+            items={general}
+          />
+        </S.SliderWrapper>
+        <S.SliderWrapper>
+          <IconsSlider
+            title={<S.SliderTitle>Frameworks / Libraries</S.SliderTitle>}
+            direction={directions.reverse}
+            items={libraries}
+          />
+        </S.SliderWrapper>
+        <S.SliderWrapper>
+          <IconsSlider
+            title={<S.SliderTitle>Tools</S.SliderTitle>}
+            items={tools}
+          />
+        </S.SliderWrapper>
       </S.Content>
     </S.TechStack>
   )
