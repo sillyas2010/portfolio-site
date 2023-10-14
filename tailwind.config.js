@@ -2,6 +2,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
+const colors = require('./src/app/constants/colors')
 
 module.exports = {
   darkMode: 'class',
@@ -18,37 +19,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary: 'var(--color-primary)',
-        secondary: 'var(--color-secondary)',
-        react: '#00d8ff',
-        canary: {
-          50: '#fcffe5',
-          100: '#f5ffc7',
-          200: '#ebff95',
-          300: '#d9fe54',
-          400: '#c6f526',
-          500: '#a6db07',
-          600: '#81b000',
-          700: '#618506',
-          800: '#4e690b',
-          900: '#41580f',
-          950: '#213102',
-        },
-        orange: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316',
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
-          950: '#431407',
-        },
-        bgLight: 'white',
-        bgDark: '#020617',
+        ...colors.default,
       },
       content: {
         empty: '',
