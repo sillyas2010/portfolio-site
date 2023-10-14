@@ -1,5 +1,5 @@
 import { NavItem } from '@/app/types'
-import CodeWarsIcon from '@/public/icons/code-wars.svg'
+import CodeWarsIcon from '@/public/icons/brands/code-wars.svg'
 import {
   faGitlab,
   faLinkedin,

@@ -31,6 +31,7 @@
     "react-dom": "18.2.0",
     "react-parallax-tilt": "^1.7.170",
     "styled-components": "^6.0.6",
+    "swiper": "^10.3.1",
     "tailwindcss": "3.3.2",
     "three": "^0.157.0",
     "twin.macro": "^3.4.0",
