@@ -1,4 +1,5 @@
 'use client'
+import breakpoints from '@/app/constants/breakpoints'
 import { NavItem } from '@/app/types'
 import Link from 'next/link'
 import React, { ElementType, Fragment, MouseEventHandler } from 'react'
@@ -28,8 +29,14 @@ const scrollToAnchor = (e: LinkClickEvent, title: string, link: string) => {
 
   if (targetElement) {
     e.preventDefault()
-    targetElement.scrollIntoView({ behavior: 'smooth' })
-    history.pushState({}, title, link)
+    setTimeout(
+      () => {
+        targetElement.scrollIntoView({ behavior: 'smooth' })
+        history.pushState({}, title, link)
+      },
+      // fix for fixed html/body on mobile
+      window.innerWidth >= breakpoints.md ? 0 : 200,
+    )
   }
 }
 

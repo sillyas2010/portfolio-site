@@ -21,10 +21,10 @@ const nav: NavItem[] = [
   //   title: 'Projects',
   //   link: '#projects',
   // },
-  {
-    title: 'Contact',
-    link: '#contact',
-  },
+  // {
+  //   title: 'Contact',
+  //   link: '#contact',
+  // },
 ]
 
 export default nav
