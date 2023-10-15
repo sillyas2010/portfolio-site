@@ -19,7 +19,7 @@ export type StyledLoader = {
 }
 
 export const Loader = styled.div<Omit<StyledLoader, '$spinnerSize'>>(() => [
-  tw`absolute left-0 right-0 top-0 bottom-0 opacity-100 transition-opacity z-10`,
+  tw`overflow-hidden absolute left-0 right-0 top-0 bottom-0 opacity-100 transition-opacity z-10`,
   ({ $hasBackdrop }) => !!$hasBackdrop && tw`bg-bgDark/40 dark:bg-bgLight/40`,
   ({ $isContentVisible }) =>
     !$isContentVisible && tw`dark:bg-bgDark bg-bgLight`,
