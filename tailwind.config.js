@@ -3,6 +3,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 const colors = require('./src/app/constants/colors')
+const breakpoints = require('./src/app/constants/breakpoints')
 
 module.exports = {
   darkMode: 'class',
@@ -17,6 +18,9 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      screens: {
+        ...breakpoints.screens,
       },
       colors: {
         ...colors.default,
