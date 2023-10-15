@@ -6,7 +6,7 @@ export const TechStack = styled.section`
 `
 
 export const SwitcherWrapper = styled.div`
-  ${tw`absolute left-5 top-10`}
+  ${tw`absolute left-3 top-10`}
 
   & > button {
     ${tw`inline-block rounded-full p-2`}
@@ -17,10 +17,11 @@ export const CategoryTitle = styled.h4`
   ${tw`text-3xl font-bold mb-8 px-3`}
 `
 
-// Visual Tech Stack
 export const Content = styled.div`
-  ${tw`max-w-screen-lg mx-auto py-4 p-2 flex flex-wrap flex-col`}
+  ${tw`relative max-w-screen-lg mx-auto flex flex-wrap flex-col`}
 `
+
+// Visual Tech Stack
 
 export const SliderWrapper = styled.div`
   ${tw`w-full mb-12`}

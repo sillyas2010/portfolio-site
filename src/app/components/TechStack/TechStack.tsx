@@ -14,16 +14,18 @@ export default function TechStack() {
 
   return (
     <S.TechStack>
-      <SectionTitle title="Tech stack" description="Technologies I use" />
+      <S.Content>
+        <S.SwitcherWrapper>
+          <Button
+            title={`${isVisual ? 'Visual' : 'Text'} view switcher`}
+            $variant={variants.outline}
+            onClick={toggleTechStackView}
+            icon={<IconWrapper faIcon={isVisual ? faListUl : faImage} />}
+          />
+        </S.SwitcherWrapper>
+      </S.Content>
 
-      <S.SwitcherWrapper>
-        <Button
-          title={`${isVisual ? 'Visual' : 'Text'} view switcher`}
-          $variant={variants.outline}
-          onClick={toggleTechStackView}
-          icon={<IconWrapper faIcon={isVisual ? faListUl : faImage} />}
-        />
-      </S.SwitcherWrapper>
+      <SectionTitle title="Tech stack" description="Technologies I use" />
 
       {isVisual ? <VisualTechStack /> : <TextTechStack />}
     </S.TechStack>
