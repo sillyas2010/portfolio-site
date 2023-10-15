@@ -1,10 +1,10 @@
 import tw, { styled } from 'twin.macro'
 
 export const Wrapper = styled.section`
-  ${tw`portrait:min-h-screen pt-32 portrait:sm:h-screen lg:h-auto lg:min-h-0 w-full sm:pt-20 py-20`}
+  ${tw`portrait:min-h-screen pt-32 portrait:sm:h-screen lg:h-auto lg:min-h-0 w-full sm:pt-20 py-20 scroll-mt-20`}
 `
 
-export const Content = styled.section`
+export const Content = styled.div`
   ${tw`h-full lg:h-auto w-full mx-auto flex flex-col justify-between max-w-container`}
 `
 
