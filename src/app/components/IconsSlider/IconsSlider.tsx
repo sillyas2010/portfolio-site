@@ -26,7 +26,9 @@ export default function IconsSlider({
 
   return (
     <S.IconsSlider>
-      <S.TitleWrapper $variant={direction}>{sliderTitle}</S.TitleWrapper>
+      {!!sliderTitle && (
+        <S.TitleWrapper $variant={direction}>{sliderTitle}</S.TitleWrapper>
+      )}
       <S.SliderWrapper>
         <Loader
           $isContentVisible={false}

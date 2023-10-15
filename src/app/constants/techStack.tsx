@@ -86,7 +86,7 @@ export const general: Tech[] = [
     link: 'https://nextjs.org/',
     icon: <NextJS viewBox="0 0 512 512" />,
   },
-  // { title: 'etc…', faIcon: faEllipsis },
+  { title: 'etc…' },
 ]
 
 export const libraries: Tech[] = [
@@ -147,7 +147,7 @@ export const libraries: Tech[] = [
     link: 'https://storybook.js.org/',
     icon: <Storybook viewBox="-3 -3 38 38" />,
   },
-  // { title: 'etc…', faIcon: faEllipsis },
+  { title: 'etc…' },
 ]
 
 export const tools: Tech[] = [
@@ -192,5 +192,5 @@ export const tools: Tech[] = [
     color: colors.brand.yarn,
     faIcon: faYarn,
   },
-  // { title: 'etc…', faIcon: faEllipsis },
+  { title: 'etc…' },
 ]

@@ -21,7 +21,7 @@ export const IconsSlider = styled.article``
 
 export const TitleWrapper = styled.div<StyledIconSlider>(() => [
   ({ $variant = directions.regular }) => variantStyles[$variant],
-  tw`px-3 text-center`,
+  tw`text-center`,
 ])
 
 export const SliderWrapper = styled.div`
