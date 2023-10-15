@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 const metaTitle = 'Illia Hloza developer portfolio'
 const metaDescription =
   'Web developer with large variety of technical skills (React, Typescript, Next.JS, Node.JS)'
-const websiteDomain = process.env.NEXT_PUBLIC_DOMAIN
+const websiteDomain = process.env.VERCEL_URL || process.env.NEXT_PUBLIC_DOMAIN
 
 export const metadata: Metadata = {
   title: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${websiteDomain}`),
   description: metaDescription,
   openGraph: {
-    title: process.env.NEXT_PUBLIC_DOMAIN,
+    title: websiteDomain,
     description: metaDescription,
     url: `/`,
     siteName: websiteDomain,

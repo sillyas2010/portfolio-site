@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withTwin = require('./config/withTwin.js')
+const dotenvExpand = require('dotenv-expand')
+
+dotenvExpand.expand({ parsed: { ...process.env } })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

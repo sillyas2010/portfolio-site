@@ -46,7 +46,7 @@ export default function Me({ Footer = Fragment }: Props) {
             </S.Description>
             <div className="mt-12 inline-flex flex-col sm:flex-row gap-4">
               <Button
-                href="#contact"
+                href="mailto:sillyas2010@gmail.com"
                 title="Contact Me"
                 $variant={variants.primary}
                 iconRight={
