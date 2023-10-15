@@ -1,7 +1,7 @@
 import BaseIconWrapper from '@/app/components/IconWrapper'
 import tw, { styled } from 'twin.macro'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   ${tw`w-full max-w-screen-lg`}
 `
 

@@ -13,7 +13,7 @@ export default function TechStack() {
   const toggleTechStackView = () => setIsVisual(currentView => !currentView)
 
   return (
-    <S.TechStack>
+    <S.TechStack id="tech">
       <S.Content>
         <S.SwitcherWrapper>
           <Button
