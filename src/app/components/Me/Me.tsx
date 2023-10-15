@@ -86,7 +86,7 @@ export default function Me({ Footer = Fragment }: Props) {
           </S.AvatarContainer>
         </S.InfoContainer>
         <div className="mt-12 sm:mt-auto md:mt-20">
-          <Footer wrapperRef={wrapperRef} />
+          <Footer scrollMargin={-80} wrapperRef={wrapperRef} />
         </div>
       </S.Content>
     </S.Wrapper>
