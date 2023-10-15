@@ -24,16 +24,22 @@ export default function TextTechStack() {
     <S.Content>
       <S.CategoriesWrapper>
         <S.CategoryWrapper>
-          <S.CategoryTitle>General:</S.CategoryTitle>
-          {listRender(general)}
+          <S.TextLeft>
+            <S.CategoryTitle>General:</S.CategoryTitle>
+            {listRender(general)}
+          </S.TextLeft>
         </S.CategoryWrapper>
-        <S.CategoryWrapper style={{ textAlign: 'center' }}>
-          <S.CategoryTitle>Additional:</S.CategoryTitle>
-          {listRender(libraries)}
+        <S.CategoryWrapper>
+          <S.TextCenter>
+            <S.CategoryTitle>Additional:</S.CategoryTitle>
+            {listRender(libraries)}
+          </S.TextCenter>
         </S.CategoryWrapper>
-        <S.CategoryWrapper style={{ textAlign: 'right' }}>
-          <S.CategoryTitle>Tools:</S.CategoryTitle>
-          {listRender(tools)}
+        <S.CategoryWrapper>
+          <S.TextRight>
+            <S.CategoryTitle>Tools:</S.CategoryTitle>
+            {listRender(tools)}
+          </S.TextRight>
         </S.CategoryWrapper>
       </S.CategoriesWrapper>
     </S.Content>

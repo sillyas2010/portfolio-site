@@ -30,15 +30,27 @@ export const SliderWrapper = styled.div`
 // Text Tech Stack
 
 export const CategoriesWrapper = styled.div`
-  ${tw`w-full flex`}
+  ${tw`w-full flex flex-wrap gap-y-4`}
+`
+
+export const TextLeft = styled.div`
+  ${tw`text-center sm:text-left`}
+`
+
+export const TextCenter = styled.div`
+  ${tw`text-center sm:text-center`}
+`
+
+export const TextRight = styled.div`
+  ${tw`text-center sm:text-right`}
 `
 
 export const CategoryWrapper = styled.div`
-  ${tw`flex-1 `}
+  ${tw`w-full sm:flex-1 sm:w-1/3`}
 `
 
 export const List = styled.ul`
-  ${tw`px-3 mb-4`}
+  ${tw`inline-block px-3 mb-4 mx-auto`}
 `
 export const ListItem = styled.li`
   ${tw`mb-4`}
