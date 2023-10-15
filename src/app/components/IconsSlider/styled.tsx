@@ -9,28 +9,24 @@ export const directions = {
 export type OneOfSocialsTypes = OneOfValues<typeof directions>
 
 const variantStyles = {
-  [directions.regular]: tw`text-left`,
-  [directions.reverse]: tw`text-right`,
+  [directions.regular]: tw`sm:text-left`,
+  [directions.reverse]: tw`sm:text-right`,
 }
 
-export interface StyledSocials {
+export interface StyledIconSlider {
   $variant?: OneOfSocialsTypes
 }
 
-export const TitleWrapper = styled.div``
+export const IconsSlider = styled.article``
 
-export const IconsSlider = styled.article<StyledSocials>(() => [
-  tw`mx-8`,
-  `& ${TitleWrapper} {
-    ${({ $variant = directions.regular }) => variantStyles[$variant]}
-  }`,
+export const TitleWrapper = styled.div<StyledIconSlider>(() => [
+  ({ $variant = directions.regular }) => variantStyles[$variant],
+  tw`px-3 text-center`,
 ])
 
 export const SliderWrapper = styled.div`
-  ${tw`w-full`}
+  ${tw`relative w-full px-3`}
 `
-
-export const SlideWrapper = tw`w-auto`
 
 export const IconWrapper = styled.div`
   svg {
@@ -38,8 +34,8 @@ export const IconWrapper = styled.div`
   }
 `
 
-export const ItemWrapper = styled.div`
-  ${tw`inline-block`}
+export const SlideWrapper = styled.div`
+  ${tw`inline-block mx-4`}
 
   & > button,
   & > a {

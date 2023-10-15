@@ -15,6 +15,17 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@ant-design/react-slick@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/react-slick/-/react-slick-1.0.2.tgz#241bb412aeacf7ff5d50c61fa5db66773fde6b56"
+  integrity sha512-Wj8onxL/T8KQLFFiCA4t8eIRGpRR+UPgOdac2sYzonv+i0n3kXHmvHLLiOYL655DQx2Umii9Y9nNgL7ssu5haQ==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    classnames "^2.2.5"
+    json2mq "^0.2.0"
+    resize-observer-polyfill "^1.5.1"
+    throttle-debounce "^5.0.0"
+
 "@babel/cli@^7.21.0":
   version "7.22.9"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.22.9.tgz#501b3614aeda7399371f6d5991404f069b059986"
@@ -1149,6 +1160,13 @@
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
+
+"@babel/runtime@^7.10.4":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
+  integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
+  dependencies:
+    regenerator-runtime "^0.14.0"
 
 "@babel/runtime@^7.11.2", "@babel/runtime@^7.17.8":
   version "7.23.1"
@@ -2345,6 +2363,11 @@ chokidar@^3.4.0, chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+classnames@^2.2.5:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 client-only@0.0.1:
   version "0.0.1"
@@ -3646,6 +3669,13 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
+json2mq@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
+  integrity sha512-SzoRg7ux5DWTII9J2qkrZrqV1gt+rTaoufMxEzXbS26Uid0NwaJd123HcoB80TgubEppxxIGdNxCx50fEoEWQA==
+  dependencies:
+    string-convert "^0.2.0"
+
 json5@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
@@ -4414,6 +4444,11 @@ require-from-string@^2.0.2:
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
@@ -4604,6 +4639,11 @@ streamsearch@^1.1.0:
   resolved "https://registry.yarnpkg.com/streamsearch/-/streamsearch-1.1.0.tgz#404dd1e2247ca94af554e841a8ef0eaa238da764"
   integrity sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==
 
+string-convert@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
+  integrity sha512-u/1tdPl4yQnPBjnVrmdLo9gtuLvELKsAoRapekWggdiQNvvvum+jYF329d84NAa660KQw7pB2n36KrIKVoXa3A==
+
 string.prototype.matchall@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-4.0.8.tgz#3bf85722021816dcd1bf38bb714915887ca79fd3"
@@ -4763,11 +4803,6 @@ svgo@^3.0.2:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
-swiper@^10.3.1:
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-10.3.1.tgz#4d19d7e9d0bd184c30accf2c1b180cfe41b9f4af"
-  integrity sha512-24Wk3YUdZHxjc9faID97GTu6xnLNia+adMt6qMTZG/HgdSUt4fS0REsGUXJOgpTED0Amh/j+gRGQxsLayJUlBQ==
-
 synckit@^0.8.5:
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.5.tgz#b7f4358f9bb559437f9f167eb6bc46b3c9818fa3"
@@ -4853,6 +4888,11 @@ three@^0.157.0:
   version "0.157.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.157.0.tgz#5baac531941fc8c4ca62d45ee4265652e03318d0"
   integrity sha512-CeAwQrf4x3z0/e+MC4F+nXLW5t0gh3pw+L6CCBqpHvOq3bGYIgRYub7Pv0j/9wR+d++OiEglyZzWyuSYbwWGOA==
+
+throttle-debounce@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-5.0.0.tgz#a17a4039e82a2ed38a5e7268e4132d6960d41933"
+  integrity sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==
 
 titleize@^3.0.0:
   version "3.0.0"

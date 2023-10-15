@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./lib/slick.min.css";
+@import "./lib/slick-theme.min.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -16,32 +18,4 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-.job {
-  width: 30vw;
-  height: 400px;
-  top: -80px;
-  z-index: 20;
-}
-
-.job::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  z-index: -1;
-  background: #16181b;
-  border-radius: inherit;
-}
-
-.job.left {
-  left: calc(-30vw - 20px);
-}
-
-.job.right {
-  padding-left: 60px;
-  right: calc(-30vw - 20px);
 }

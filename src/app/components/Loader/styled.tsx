@@ -5,6 +5,8 @@ export const spinnerSizes = {
   0.75: tw`scale-75`,
   0.5: tw`scale-50`,
   0.25: tw`scale-[25%]`,
+  0.1: tw`scale-[10%]`,
+  0.05: tw`scale-[5%]`,
 } as const
 
 export type OneOfIconSizes = keyof typeof spinnerSizes

@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/react'
 import { Poppins } from 'next/font/google'
-import './globals.css'
+import './css/globals.css'
 
 import StyledComponentsRegistry from '@/lib/registry'
 import GlobalStyles from '@/styles/GlobalStyles'

@@ -1,67 +1,61 @@
 import Button, { variants } from '@/app/components/Button'
 import IconWrapper from '@/app/components/IconWrapper'
+import Loader from '@/app/components/Loader'
 import { Tech } from '@/app/constants/techStack'
-import React, { ReactNode } from 'react'
-import { Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import Slider from '@ant-design/react-slick'
+import React, { ReactNode, useState } from 'react'
+import defaultSettings, { SettingsFunc } from './settings'
 import * as S from './styled'
-
-import 'swiper/css'
 
 interface SliderProps {
   items: Tech[]
   title: string | ReactNode
-  direction?: S.StyledSocials['$variant']
+  direction?: S.StyledIconSlider['$variant']
+  settings?: SettingsFunc
 }
 
 export default function IconsSlider({
   items,
   title: sliderTitle,
-  direction,
+  settings = defaultSettings,
+  direction = S.directions.regular,
 }: SliderProps) {
+  const [isLoaded, setLoaded] = useState(false)
+  const onInit = () => setLoaded(true)
+  const rtl = direction !== S.directions.reverse
+
   return (
-    <S.IconsSlider $variant={direction}>
-      <S.TitleWrapper>{sliderTitle}</S.TitleWrapper>
+    <S.IconsSlider>
+      <S.TitleWrapper $variant={direction}>{sliderTitle}</S.TitleWrapper>
       <S.SliderWrapper>
-        <Swiper
-          loop
-          speed={500}
-          spaceBetween={30}
-          loopedSlides={3}
-          slidesPerView={5}
-          centeredSlides
-          modules={[Autoplay]}
-          autoplay={{
-            delay: 2000,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-            reverseDirection: direction === S.directions.reverse,
-          }}
-        >
+        <Loader
+          $isContentVisible={false}
+          $spinnerSize={0.1}
+          $isLoaded={isLoaded}
+        />
+        <Slider {...settings({ rtl, onInit })}>
           {items.map(({ title, link, icon, color, faIcon }) =>
             icon || faIcon ? (
-              <SwiperSlide css={S.SlideWrapper} key={`${title}_${link}`}>
-                <S.ItemWrapper>
-                  <Button
-                    $variant={variants.secondary}
-                    target="_blank"
-                    title={title}
-                    href={link}
-                    icon={
-                      <S.IconWrapper
-                        style={{
-                          color: color || undefined,
-                        }}
-                      >
-                        <IconWrapper faIcon={faIcon} icon={icon} />
-                      </S.IconWrapper>
-                    }
-                  />
-                </S.ItemWrapper>
-              </SwiperSlide>
+              <S.SlideWrapper key={`${title}_${link}`}>
+                <Button
+                  $variant={variants.secondary}
+                  target="_blank"
+                  title={title}
+                  href={link}
+                  icon={
+                    <S.IconWrapper
+                      style={{
+                        color,
+                      }}
+                    >
+                      <IconWrapper faIcon={faIcon} icon={icon} />
+                    </S.IconWrapper>
+                  }
+                />
+              </S.SlideWrapper>
             ) : null,
           )}
-        </Swiper>
+        </Slider>
       </S.SliderWrapper>
     </S.IconsSlider>
   )
