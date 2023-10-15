@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${websiteDomain}`),
   description: metaDescription,
   openGraph: {
-    title: websiteDomain,
+    title: metaTitle,
     description: metaDescription,
     url: `/`,
     siteName: websiteDomain,
