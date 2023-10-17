@@ -17,7 +17,11 @@ export interface StyledIconSlider {
   $variant?: OneOfSocialsTypes
 }
 
-export const IconsSlider = styled.article``
+export const IconsSlider = styled.article`
+  & .slick-track {
+    ${tw`py-1`}
+  }
+`
 
 export const TitleWrapper = styled.div<StyledIconSlider>(() => [
   ({ $variant = directions.regular }) => variantStyles[$variant],

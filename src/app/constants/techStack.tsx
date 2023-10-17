@@ -138,7 +138,7 @@ export const libraries: Tech[] = [
   },
   {
     title: 'React testing library',
-    link: '/',
+    link: 'https://testing-library.com/',
     icon: <RTL viewBox="-2 -2 28 28" />,
   },
   { title: 'Cypress', link: 'https://www.cypress.io/', icon: <Cypress /> },
