@@ -1,6 +1,8 @@
 import Button, { variants } from '@/app/components/Button'
 import IconWrapper from '@/app/components/IconWrapper'
 import SectionTitle from '@/app/components/SectionTitle'
+import { NavKeys } from '@/app/types'
+import getNavAnchor from '@/app/utils/getNavAnchor'
 import { faImage } from '@fortawesome/free-regular-svg-icons'
 import { faListUl } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
@@ -13,7 +15,7 @@ export default function TechStack() {
   const toggleTechStackView = () => setIsVisual(currentView => !currentView)
 
   return (
-    <S.TechStack id="tech">
+    <S.TechStack id={getNavAnchor({ key: NavKeys.technologies })}>
       <S.Content>
         <S.SwitcherWrapper>
           <Button

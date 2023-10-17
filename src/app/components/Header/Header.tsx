@@ -1,5 +1,5 @@
 import { Nav } from '@/app/components/Nav'
-import { nav } from '@/app/constants'
+import { navItems } from '@/app/constants'
 import LogoImage from '@/public/logo.svg'
 import React from 'react'
 import * as S from './styled'
@@ -13,7 +13,7 @@ export default function Header() {
             <LogoImage />
           </S.LogoWrapper>
         </S.NavLink>
-        <Nav items={nav} />
+        <Nav items={navItems} />
       </S.Content>
     </S.Header>
   )

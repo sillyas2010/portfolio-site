@@ -2,7 +2,7 @@ import tw, { styled } from 'twin.macro'
 
 // General
 export const TechStack = styled.section`
-  ${tw`relative w-full pt-20 scroll-mt-20`}
+  ${tw`relative w-full mt-20 scroll-mt-20`}
 `
 
 export const SwitcherWrapper = styled.div`

@@ -9,3 +9,12 @@ export interface NavItem {
   icon?: ReactNode
   faIcon?: IconDefinition
 }
+
+export enum NavKeys {
+  intro = 'INTRO',
+  whyMe = 'WHY_ME',
+  experience = 'EXP',
+  technologies = 'TECH',
+  projects = 'PROJECTS',
+  contact = 'CONTACT',
+}

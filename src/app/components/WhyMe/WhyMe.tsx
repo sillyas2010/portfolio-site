@@ -9,13 +9,15 @@ import colors from 'tailwindcss/colors'
 
 const LazyMacBookModel = dynamic(() => import('./MacBookModel'), { ssr: false })
 
+import { NavKeys } from '@/app/types'
+import getNavAnchor from '@/app/utils/getNavAnchor'
 import * as S from './styled'
 
 export default function WhyMe() {
   const { progress } = useProgress()
 
   return (
-    <S.Wrapper>
+    <S.Wrapper id={getNavAnchor({ key: NavKeys.whyMe })}>
       <SectionTitle title="Why me?" description="Pros which make special" />
       <S.Grid>
         <S.ModelWrapper>

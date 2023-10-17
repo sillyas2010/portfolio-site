@@ -4,6 +4,8 @@ import Socials from '@/app/components/Socials'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
 import { socials } from '@/app/constants'
 import { careerDescriptionText, name, subTitle } from '@/app/constants/texting'
+import { NavKeys } from '@/app/types'
+import getNavAnchor from '@/app/utils/getNavAnchor'
 import SendIcon from '@/public/icons/send.svg'
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
@@ -18,7 +20,7 @@ export default function Me({ Footer = Fragment }: Props) {
   const wrapperRef = useRef(null)
 
   return (
-    <S.Wrapper id="me" ref={wrapperRef}>
+    <S.Wrapper id={getNavAnchor({ key: NavKeys.intro })} ref={wrapperRef}>
       <S.Content>
         <S.InfoContainer>
           <S.SocialsContainer>

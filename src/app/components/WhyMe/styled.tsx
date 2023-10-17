@@ -2,7 +2,7 @@ import BaseIconWrapper from '@/app/components/IconWrapper'
 import tw, { styled } from 'twin.macro'
 
 export const Wrapper = styled.section`
-  ${tw`w-full max-w-screen-lg`}
+  ${tw`w-full max-w-screen-lg scroll-mt-20`}
 `
 
 export const Grid = styled.div`
