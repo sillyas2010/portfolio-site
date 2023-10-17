@@ -2,6 +2,7 @@ import { getCareerYears } from '@/app/utils/careerYears'
 
 export const name = 'Illia Hloza'
 export const subTitle = 'Frontend Developer (React)'
+export const email = 'sillyas2010@gmail.com'
 // from 15.07.2017 till now
 export const careerYears = getCareerYears(new Date(2017, 7 - 1, 15), new Date())
 

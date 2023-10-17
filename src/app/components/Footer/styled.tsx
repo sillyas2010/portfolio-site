@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro'
 
 export const Footer = styled.footer`
-  ${tw`bg-bgDark/10 dark:bg-bgLight/10 mt-20 z-30`}
+  ${tw`bg-bgDark/10 dark:bg-gray-900 mt-20 z-30`}
 `
 
 export const Content = styled.div`

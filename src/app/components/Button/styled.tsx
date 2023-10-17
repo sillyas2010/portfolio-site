@@ -30,7 +30,7 @@ const variantStyles = {
 }
 
 const wideStyles = tw`px-10`
-const fullStyles = tw`w-full flex`
+const fullStyles = tw`w-full flex justify-center`
 
 export interface StyledButton {
   $variant?: OneOfButtonVariants

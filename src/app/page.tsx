@@ -1,4 +1,5 @@
 'use client'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Me from './components/Me'
@@ -14,6 +15,7 @@ export default function Home() {
         <Me Footer={ScrollDown} />
         <WhyMe />
         <TechStack />
+        <Contact />
       </main>
       <Footer />
     </>

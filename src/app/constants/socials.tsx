@@ -1,3 +1,4 @@
+import { email } from '@/app/constants/texting'
 import { NavItem } from '@/app/types'
 import CodeWarsIcon from '@/public/icons/brands/code-wars.svg'
 import {
@@ -10,7 +11,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 const socials: NavItem[] = [
   {
     title: 'Email',
-    link: 'mailto:sillyas2010@gmail.com',
+    link: `mailto:${email}`,
     faIcon: faEnvelope,
   },
   {
