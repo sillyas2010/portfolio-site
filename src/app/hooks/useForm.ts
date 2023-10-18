@@ -43,17 +43,29 @@ const useForm = <FieldKeys extends string | number | symbol>({
   const isTouched = useRef(false)
 
   const onSubmit = () => {
+    let currentIsValid = true
+
     isTouched.current = true
     possibleFields.forEach(field => {
-      touched.current[field as keyof typeof fields] = true
+      const currentField = field as keyof typeof fields
+      touched.current[currentField] = true
+
+      if (currentIsValid) {
+        currentIsValid = !errors.current[currentField]
+      }
     })
+
     setIsAllTouched(true)
+    setIsValid(currentIsValid)
   }
   const onFieldChange = useCallback(
     (field: keyof typeof fields) => () => {
       const fieldElement = fields[field].current
       const newValue = fieldElement?.value
       let newError: string | boolean = !fieldElement?.validity?.valid
+
+      touched.current[field] = true
+      isTouched.current = true
 
       if (!fieldElement?.validity?.valid) {
         newError = fieldElement?.validationMessage || true
@@ -62,9 +74,6 @@ const useForm = <FieldKeys extends string | number | symbol>({
       } else {
         errors.current[field] = false
       }
-
-      touched.current[field] = true
-      isTouched.current = true
 
       setValues(prev => ({
         ...prev,
@@ -86,7 +95,7 @@ const useForm = <FieldKeys extends string | number | symbol>({
       errors.current[field] = fields[field]?.current?.validationMessage || false
 
       if (errors.current[field] !== false) {
-        if (currentIsValid) {
+        if (currentIsValid && touched.current[field] === true) {
           currentIsValid = false
         }
         if (touched.current[field] === true) {
