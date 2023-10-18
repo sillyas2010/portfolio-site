@@ -47,6 +47,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     }: ButtonProps,
     ref: ButtonRef<C>,
   ) => {
+    const buttonTitle =
+      title || (typeof children === 'string' ? children : undefined)
     const handleClick = useCallback<Required<ButtonProps>['onClick']>(
       (e, ...rest) => {
         if (disabled || !(onClick || href || type) || type === 'button') {
@@ -63,6 +65,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
     const styling: S.StyledButton = {
       $type: icon ? S.types.icon : $type,
       $variant,
+    }
+    const commonProps = {
+      'aria-disabled': disabled || undefined,
+      'aria-label': title,
+      title: buttonTitle,
+      ref,
+      ...styling,
     }
     const content = (
       <>
@@ -81,15 +90,11 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       return (
         <Link href={href} legacyBehavior passHref>
           <S.Link
-            aria-disabled={disabled || undefined}
-            aria-label={title}
-            title={title}
+            onClick={handleLinkClick}
             target={target}
             rel={rel}
+            {...commonProps}
             {...rest}
-            {...styling}
-            onClick={handleLinkClick}
-            ref={ref}
           >
             {content}
           </S.Link>
@@ -99,15 +104,11 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
 
     return (
       <S.Button
-        disabled={disabled}
-        aria-disabled={disabled || undefined}
-        aria-label={title}
-        title={title}
-        type={type}
-        {...rest}
-        {...styling}
         onClick={handleClick}
-        ref={ref}
+        disabled={disabled}
+        type={type}
+        {...commonProps}
+        {...rest}
       >
         {content}
       </S.Button>

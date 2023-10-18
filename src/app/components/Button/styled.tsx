@@ -23,10 +23,10 @@ const typeStyles = {
 export type OneOfButtonTypes = OneOfValues<typeof types>
 
 const variantStyles = {
-  [variants.primary]: tw`[&:not([aria-disabled])]:bg-orange-500 border-transparent text-white hover:[&:not([aria-disabled])]:bg-orange-600 focus:[&:not([aria-disabled])]:opacity-90 focus:[&:not([aria-disabled])]:ring-orange-600`,
+  [variants.primary]: tw`[&[title]]:bg-orange-500 border-transparent text-white hover:[&:not([aria-disabled])]:bg-orange-600 focus:[&:not([aria-disabled])]:opacity-90 focus:[&:not([aria-disabled])]:ring-orange-600`,
   [variants.raw]: tw`border-transparent text-orange-500 hover:[&:not([aria-disabled])]:bg-neutral-800/10 hover:dark:[&:not([aria-disabled])]:bg-neutral-800/50 focus:[&:not([aria-disabled])]:bg-neutral-800/10 focus:dark:[&:not([aria-disabled])]:bg-neutral-800/50 focus:[&:not([aria-disabled])]:outline-none`,
-  [variants.secondary]: tw`[&:not([aria-disabled])]:bg-white border-orange-500 text-orange-500 hover:[&:not([aria-disabled])]:bg-orange-600 hover:[&:not([aria-disabled])]:border-orange-600 hover:[&:not([aria-disabled])]:text-white focus:[&:not([aria-disabled])]:border-transparent focus:[&:not([aria-disabled])]:ring-orange-600`,
-  [variants.outline]: tw`[&:not([aria-disabled])]:bg-transparent border-orange-400 text-orange-500 hover:[&:not([aria-disabled])]:bg-orange-600 hover:[&:not([aria-disabled])]:text-white hover:[&:not([aria-disabled])]:border-transparent dark:focus:[&:not([aria-disabled])]:text-white focus:[&:not([aria-disabled])]:border-transparent focus:[&:not([aria-disabled])]:ring-orange-600`,
+  [variants.secondary]: tw`[&[title]]:bg-white border-orange-500 text-orange-500 hover:[&:not([aria-disabled])]:bg-orange-600 hover:[&:not([aria-disabled])]:border-orange-600 hover:[&:not([aria-disabled])]:text-white focus:[&:not([aria-disabled])]:border-transparent focus:[&:not([aria-disabled])]:ring-orange-600`,
+  [variants.outline]: tw`[&[title]]:bg-transparent border-orange-400 text-orange-500 hover:[&:not([aria-disabled])]:bg-orange-600 hover:[&:not([aria-disabled])]:text-white hover:[&:not([aria-disabled])]:border-transparent dark:focus:[&:not([aria-disabled])]:text-white focus:[&:not([aria-disabled])]:border-transparent focus:[&:not([aria-disabled])]:ring-orange-600`,
 }
 
 const wideStyles = tw`px-10`
