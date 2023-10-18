@@ -12,6 +12,7 @@ import * as S from './styled'
 interface ButtonProps extends S.StyledButton {
   href?: string
   target?: string
+  type?: HTMLButtonElement['type']
   rel?: string
   title?: string
   iconLeft?: ReactNode
@@ -32,6 +33,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
       $variant = S.variants.secondary,
       $type = S.types.text,
       target,
+      type,
       href,
       rel,
       iconLeft,
@@ -47,7 +49,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
   ) => {
     const handleClick = useCallback<Required<ButtonProps>['onClick']>(
       (e, ...rest) => {
-        if (disabled || !(onClick || href)) {
+        if (disabled || !(onClick || href || type) || type === 'button') {
           e.preventDefault()
           return false
         }
@@ -56,7 +58,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
           onClick(e, ...rest)
         }
       },
-      [onClick, href, disabled],
+      [onClick, href, disabled, type],
     )
     const styling: S.StyledButton = {
       $type: icon ? S.types.icon : $type,
@@ -101,6 +103,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLLinkElement, ButtonProps>(
         aria-disabled={disabled || undefined}
         aria-label={title}
         title={title}
+        type={type}
         {...rest}
         {...styling}
         onClick={handleClick}

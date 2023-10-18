@@ -1,13 +1,48 @@
 import Button, { variants } from '@/app/components/Button'
+import Field, { ValidationError } from '@/app/components/Field'
+import Link from '@/app/components/Link'
 import SectionTitle from '@/app/components/SectionTitle'
 import { email } from '@/app/constants/texting'
+import useForm from '@/app/hooks/useForm'
 import { NavKeys } from '@/app/types'
 import getNavAnchor from '@/app/utils/getNavAnchor'
-import React from 'react'
-import Link from '../Link/Link'
+import React, { FormEvent, useRef } from 'react'
 import * as S from './styled'
 
+const constructContactFormAction = ({
+  name,
+  subject,
+  social,
+  message,
+}: Record<string, string>) => {
+  const nameString = name ? `${name} ` : ''
+  const contactInfoString = social ? ` (${social}) ` : ''
+  const messageString = message ? ` ${message}` : ''
+  const bodyString = nameString + contactInfoString + messageString
+  const params = new URLSearchParams([
+    ...(subject ? [['subject', subject]] : []),
+    ...(bodyString ? [['body', bodyString]] : []),
+  ]).toString()
+
+  return `mailto:${email}?${params}`
+}
+
 function Contact() {
+  const fields = {
+    name: useRef<HTMLInputElement>(null),
+    social: useRef<HTMLInputElement>(null),
+    subject: useRef<HTMLInputElement>(null),
+    message: useRef<HTMLTextAreaElement>(null),
+  } as const
+  const { values, touched, errors } = useForm({ fields })
+  const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const action = constructContactFormAction(values)
+    e.preventDefault()
+
+    // window.open(action)
+    console.log(action)
+  }
+
   return (
     <S.Contact id={getNavAnchor({ key: NavKeys.contact })}>
       <SectionTitle title="Contact" description="Feel free to share offer" />
@@ -25,31 +60,78 @@ function Contact() {
           </S.ContactGlobe>
         </S.Left>
         <S.Right>
-          <S.InputWrapper>
-            <S.Label htmlFor="name">Name</S.Label>
-            <S.Input type="name" id="name" name="name" />
-          </S.InputWrapper>
-          <S.InputWrapper>
-            <S.Label htmlFor="email-or-social">Email / Social</S.Label>
-            <S.Input type="text" id="email-or-social" name="email-or-social" />
-          </S.InputWrapper>
-          <S.InputWrapper>
-            <S.Label htmlFor="subject">Subject</S.Label>
-            <S.Input type="text" id="subject" name="subject" />
-          </S.InputWrapper>
-          <S.InputWrapper>
-            <S.Label htmlFor="message">Message</S.Label>
-            <S.TextArea id="message" name="message" />
-          </S.InputWrapper>
-          <S.ButtonWrapper>
-            <Button
-              $isFull
-              $variant={variants.primary}
-              href="mailto:test@test.com"
-            >
-              Contact
-            </Button>
-          </S.ButtonWrapper>
+          <S.Form onSubmit={handleContactSubmit} autoComplete="off" noValidate>
+            <Field
+              label="Name"
+              validation={
+                !!errors.name &&
+                !!touched.name && (
+                  <ValidationError>{errors.name}</ValidationError>
+                )
+              }
+              $touched={touched.name}
+              minLength={8}
+              ref={fields.name}
+              type="name"
+              id="name"
+              name="name"
+              required
+            />
+
+            <Field
+              label="Email / Social"
+              validation={
+                !!errors.social &&
+                !!touched.social && (
+                  <ValidationError>{errors.social}</ValidationError>
+                )
+              }
+              $touched={touched.social}
+              ref={fields.social}
+              type="text"
+              id="email-or-social"
+              name="email-or-social"
+              required
+            />
+
+            <Field
+              label="Subject"
+              validation={
+                !!errors.subject &&
+                !!touched.subject && (
+                  <ValidationError>{errors.subject}</ValidationError>
+                )
+              }
+              $touched={touched.subject}
+              ref={fields.subject}
+              type="text"
+              id="subject"
+              name="subject"
+              required
+            />
+
+            <Field
+              label="Message"
+              validation={
+                !!errors.message &&
+                !!touched.message && (
+                  <ValidationError>{errors.message}</ValidationError>
+                )
+              }
+              $touched={touched.message}
+              ref={fields.message}
+              type="textarea"
+              id="message"
+              name="message"
+              required
+            />
+
+            <S.ButtonWrapper>
+              <Button type="submit" $isFull $variant={variants.primary}>
+                Contact
+              </Button>
+            </S.ButtonWrapper>
+          </S.Form>
           <S.FormInfo>
             Form submit will trigger opening your email client with predefined
             values.

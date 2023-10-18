@@ -36,23 +36,7 @@ export const NoticeText = styled.p`
   ${tw``}
 `
 
-export const Label = styled.label`
-  ${tw`leading-7 text-sm text-gray-600 dark:text-gray-400`}
-`
-
-const BaseInput = tw`w-full bg-bgLight dark:bg-gray-900 rounded border border-gray-300 dark:border-gray-700 text-base text-gray-700 dark:text-gray-100 py-1 px-3 leading-8 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 dark:focus:ring-orange-900 outline-none transition-colors duration-200 ease-in-out`
-
-export const InputWrapper = styled.div`
-  ${tw`relative mb-4`}
-`
-export const Input = styled.input`
-  ${BaseInput}
-`
-
-export const TextArea = styled.textarea`
-  ${BaseInput}
-  ${tw`h-32 resize-none leading-6`}
-`
+export const Form = styled.form``
 
 export const ButtonWrapper = styled.div`
   & > * {
