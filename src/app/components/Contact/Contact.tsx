@@ -17,11 +17,11 @@ const constructContactFormAction = ({
 }: Record<string, string>) => {
   const nameString = name ? `${name} ` : ''
   const contactInfoString = social ? ` (${social}) ` : ''
-  const messageString = message ? ` ${message}` : ''
-  const bodyString = nameString + contactInfoString + messageString
+  const subjectString =
+    nameString + contactInfoString + (subject ? `: ${subject}` : '')
   const params = new URLSearchParams([
-    ...(subject ? [['subject', subject]] : []),
-    ...(bodyString ? [['body', bodyString]] : []),
+    ...(subjectString ? [['subject', subjectString]] : []),
+    ...(message ? [['body', message]] : []),
   ]).toString()
 
   return `mailto:${email}?${params}`
@@ -68,6 +68,22 @@ function Contact() {
         <S.Right>
           <S.Form onSubmit={handleContactSubmit} autoComplete="off" noValidate>
             <Field
+              label="Email / Social"
+              validation={
+                !!errors.social &&
+                !!touched.social && (
+                  <ValidationError>{errors.social}</ValidationError>
+                )
+              }
+              $touched={touched.social}
+              ref={fields.social}
+              type="text"
+              id="email-or-social"
+              name="email-or-social"
+              required
+            />
+
+            <Field
               label="Name"
               validation={
                 !!errors.name &&
@@ -85,22 +101,6 @@ function Contact() {
             />
 
             <Field
-              label="Email / Social"
-              validation={
-                !!errors.social &&
-                !!touched.social && (
-                  <ValidationError>{errors.social}</ValidationError>
-                )
-              }
-              $touched={touched.social}
-              ref={fields.social}
-              type="text"
-              id="email-or-social"
-              name="email-or-social"
-              required
-            />
-
-            <Field
               label="Subject"
               validation={
                 !!errors.subject &&
@@ -113,7 +113,6 @@ function Contact() {
               type="text"
               id="subject"
               name="subject"
-              required
             />
 
             <Field
