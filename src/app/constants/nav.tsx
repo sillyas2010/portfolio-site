@@ -36,13 +36,13 @@ const nav: Map<NavKeys, NavItem> = new Map([
   //     link: '#projects',
   //   },
   // ],
-  // [
-  //   NavKeys.contact,
-  //   {
-  //     title: 'Contact',
-  //     link: '#contact',
-  //   },
-  // ],
+  [
+    NavKeys.contact,
+    {
+      title: 'Contact',
+      link: '#contact',
+    },
+  ],
 ])
 
 export const navItems = Array.from(nav, ([, val]) => val)
