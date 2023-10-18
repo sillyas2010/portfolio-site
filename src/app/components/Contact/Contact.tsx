@@ -34,13 +34,19 @@ function Contact() {
     subject: useRef<HTMLInputElement>(null),
     message: useRef<HTMLTextAreaElement>(null),
   } as const
-  const { values, touched, errors } = useForm({ fields })
+  const { values, touched, errors, isTouched, isValid, onSubmit } = useForm({
+    fields,
+  })
   const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
-    const action = constructContactFormAction(values)
     e.preventDefault()
+    onSubmit()
 
-    // window.open(action)
-    console.log(action)
+    if (isValid) {
+      const action = constructContactFormAction(values)
+
+      // window.open(action)
+      console.log(action)
+    }
   }
 
   return (
@@ -127,7 +133,13 @@ function Contact() {
             />
 
             <S.ButtonWrapper>
-              <Button type="submit" $isFull $variant={variants.primary}>
+              <Button
+                type="submit"
+                title="Contact"
+                disabled={isTouched && !isValid}
+                $isFull
+                $variant={variants.primary}
+              >
                 Contact
               </Button>
             </S.ButtonWrapper>
