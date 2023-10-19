@@ -4,6 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 const colors = require('./src/app/constants/colors')
 const breakpoints = require('./src/app/constants/breakpoints')
+const fonts = require('./src/app/constants/fonts')
 
 module.exports = {
   darkMode: 'class',
@@ -29,8 +30,11 @@ module.exports = {
         empty: '',
       },
       fontFamily: {
-        sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
-        display: ['var(--font-poppins)'],
+        sans: [
+          `var(${fonts.poppins.variable})`,
+          ...defaultTheme.fontFamily.sans,
+        ],
+        display: [`var(${fonts.poppins.variable})`],
       },
       boxShadow: {
         avatar: 'inset 0 0 0 9px rgb(0, 0, 0)',
