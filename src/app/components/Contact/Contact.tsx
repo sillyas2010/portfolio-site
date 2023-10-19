@@ -39,7 +39,7 @@ function Contact() {
   })
   const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    onSubmit()
+    const { isValid } = onSubmit()
 
     if (isValid) {
       const action = constructContactFormAction(values)

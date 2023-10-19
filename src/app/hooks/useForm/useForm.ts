@@ -1,76 +1,13 @@
 import {
   Dispatch,
-  RefObject,
   SetStateAction,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react'
-
-interface useForm<
-  FieldKeys extends string | number | symbol = string | number | symbol,
-> {
-  fields: Record<
-    FieldKeys,
-    RefObject<HTMLInputElement> | RefObject<HTMLTextAreaElement>
-  >
-  onChange?: (
-    field: FieldKeys,
-    value?: string,
-    fieldElement?: HTMLInputElement | HTMLTextAreaElement | null,
-  ) => void
-}
-type ValuesT<Fields> = Record<keyof Fields, string>
-type ErrorsT<Fields> = Record<keyof Fields, boolean | string>
-type TouchedT<Fields> = Record<keyof Fields, boolean>
-interface revalidateForm<Fields extends useForm['fields']> {
-  fields: Fields
-  errors: ErrorsT<Fields>
-  touched: TouchedT<Fields>
-  setIsValid: Dispatch<SetStateAction<boolean>>
-  setIsTouched: Dispatch<SetStateAction<boolean>>
-  setIsAllTouched: Dispatch<SetStateAction<boolean>>
-}
-
-const revalidateForm = <Fields extends useForm['fields']>({
-  fields,
-  errors,
-  touched,
-  setIsValid,
-  setIsTouched,
-  setIsAllTouched,
-}: revalidateForm<Fields>) => {
-  const fieldsArr = Object.keys(fields)
-  let currentIsValid = true
-  let currentTouched = 0
-
-  for (let i = 0; i < fieldsArr.length; i++) {
-    const field = fieldsArr[i] as keyof Fields
-    errors[field] = fields[field]?.current?.validationMessage || false
-
-    if (errors[field] !== false) {
-      if (currentIsValid && touched[field] === true) {
-        currentIsValid = false
-      }
-      if (touched[field] === true) {
-        currentTouched += 1
-      }
-    }
-  }
-
-  if (currentTouched) {
-    setIsTouched(true)
-  }
-
-  setIsValid(currentIsValid)
-
-  if (currentTouched === fieldsArr.length) {
-    setIsAllTouched(true)
-  }
-
-  return currentIsValid
-}
+import type { ErrorsT, TouchedT, ValuesT, useForm } from './types'
+import revalidateForm from './utils/revalidateForm'
 
 const useForm = <FieldKeys extends string | number | symbol>({
   fields,
