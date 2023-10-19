@@ -1,11 +1,11 @@
 'use client'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Me from './components/Me'
-import ScrollDown from './components/ScrollDown'
-import TechStack from './components/TechStack'
-import WhyMe from './components/WhyMe'
+import ScrollDown from '@/app/components/ScrollDown'
+import Contact from '@/app/components/sections/Contact'
+import Footer from '@/app/components/sections/Footer'
+import Header from '@/app/components/sections/Header'
+import Me from '@/app/components/sections/Me'
+import TechStack from '@/app/components/sections/TechStack'
+import WhyMe from '@/app/components/sections/WhyMe'
 
 export default function Home() {
   return (
