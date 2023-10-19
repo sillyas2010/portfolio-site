@@ -9,15 +9,22 @@ export const Content = styled.div`
 `
 
 export const Left = styled.div`
-  ${tw`xl:w-2/3 md:w-1/2 w-full overflow-hidden pb-10 pr-10 flex items-end justify-start relative`}
+  ${tw`xl:w-2/3 md:w-1/2 w-full overflow-visible mb-10 sm:px-10 flex items-center justify-center relative`}
 `
 
 export const Right = styled.div`
-  ${tw`xl:w-1/3 md:w-1/2 w-full flex flex-col md:ml-auto md:pb-10 mt-8 md:mt-0`}
+  ${tw`xl:w-1/3 md:w-1/2 w-full flex flex-col md:ml-auto md:pb-10 md:mt-8`}
 `
 
 export const ContactGlobe = styled.div`
-  ${tw`xl:w-full h-full relative mb-12 md:mb-0`}
+  ${tw`md:mb-20 inline-block`}
+  & > * {
+    ${tw`w-72 md:w-64 lg:w-72 xl:w-80`}
+  }
+`
+
+export const GlobeWrapper = styled.div`
+  ${tw`mx-auto`}
 `
 
 export const Notice = styled.div`

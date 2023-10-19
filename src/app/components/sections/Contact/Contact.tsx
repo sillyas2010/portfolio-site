@@ -1,5 +1,6 @@
 import Button, { variants } from '@/app/components/Button'
 import Field, { ValidationError } from '@/app/components/Field'
+import Globe from '@/app/components/Globe'
 import Link from '@/app/components/Link'
 import SectionTitle from '@/app/components/SectionTitle'
 import { email } from '@/app/constants/texting'
@@ -44,8 +45,7 @@ function Contact() {
     if (isValid) {
       const action = constructContactFormAction(values)
 
-      // window.open(action)
-      console.log(action)
+      window.open(action, '_blank')
     }
   }
 
@@ -55,15 +55,16 @@ function Contact() {
       <S.Content>
         <S.Left>
           <S.ContactGlobe>
-            <S.Notice>
-              <S.NoticeContainer>
-                <S.NoticeLabel>LOCATION</S.NoticeLabel>
-                <S.NoticeText>Ukraine, Kyiv</S.NoticeText>
-                <S.NoticeLabel>EMAIL</S.NoticeLabel>
-                <Link href={`mailto:${email}`}>sillyas2010@gmail.com</Link>
-              </S.NoticeContainer>
-            </S.Notice>
+            <Globe />
           </S.ContactGlobe>
+          <S.Notice>
+            <S.NoticeContainer>
+              <S.NoticeLabel>LOCATION</S.NoticeLabel>
+              <S.NoticeText>Ukraine, Kyiv</S.NoticeText>
+              <S.NoticeLabel>EMAIL</S.NoticeLabel>
+              <Link href={`mailto:${email}`}>sillyas2010@gmail.com</Link>
+            </S.NoticeContainer>
+          </S.Notice>
         </S.Left>
         <S.Right>
           <S.Form onSubmit={handleContactSubmit} autoComplete="off" noValidate>

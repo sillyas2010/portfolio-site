@@ -54,6 +54,8 @@ module.exports = {
         avatar: 'avatar 6s ease-in-out infinite',
         typing:
           'typewriter 3.5s ease infinite, blinkTextCursor .5s ease infinite',
+        globe: 'globe 8s linear infinite',
+        globeBack: 'globeBack 8s linear infinite',
         scrollDown: 'scrollDown 1.5s ease-in-out infinite',
       },
       keyframes: {
@@ -70,6 +72,22 @@ module.exports = {
             'border-left': '1px solid rgba(255,255,255,.75)',
           },
           to: { 'border-left-color': 'transparent' },
+        },
+        globe: {
+          from: {
+            transform: 'translateX(-47.5%)',
+          },
+          to: {
+            transform: 'translateX(0)',
+          },
+        },
+        globeBack: {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(-47.5%)',
+          },
         },
         scrollDown: {
           '0%': {
