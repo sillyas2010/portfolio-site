@@ -1,6 +1,16 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from 'react'
+import {
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
-interface useForm<FieldKeys extends string | number | symbol> {
+interface useForm<
+  FieldKeys extends string | number | symbol = string | number | symbol,
+> {
   fields: Record<
     FieldKeys,
     RefObject<HTMLInputElement> | RefObject<HTMLTextAreaElement>
@@ -11,69 +21,106 @@ interface useForm<FieldKeys extends string | number | symbol> {
     fieldElement?: HTMLInputElement | HTMLTextAreaElement | null,
   ) => void
 }
+type ValuesT<Fields> = Record<keyof Fields, string>
+type ErrorsT<Fields> = Record<keyof Fields, boolean | string>
+type TouchedT<Fields> = Record<keyof Fields, boolean>
+interface revalidateForm<Fields extends useForm['fields']> {
+  fields: Fields
+  errors: ErrorsT<Fields>
+  touched: TouchedT<Fields>
+  setIsValid: Dispatch<SetStateAction<boolean>>
+  setIsTouched: Dispatch<SetStateAction<boolean>>
+  setIsAllTouched: Dispatch<SetStateAction<boolean>>
+}
+
+const revalidateForm = <Fields extends useForm['fields']>({
+  fields,
+  errors,
+  touched,
+  setIsValid,
+  setIsTouched,
+  setIsAllTouched,
+}: revalidateForm<Fields>) => {
+  const fieldsArr = Object.keys(fields)
+  let currentIsValid = true
+  let currentTouched = 0
+
+  for (let i = 0; i < fieldsArr.length; i++) {
+    const field = fieldsArr[i] as keyof Fields
+    errors[field] = fields[field]?.current?.validationMessage || false
+
+    if (errors[field] !== false) {
+      if (currentIsValid && touched[field] === true) {
+        currentIsValid = false
+      }
+      if (touched[field] === true) {
+        currentTouched += 1
+      }
+    }
+  }
+
+  if (currentTouched) {
+    setIsTouched(true)
+  }
+
+  setIsValid(currentIsValid)
+
+  if (currentTouched === fieldsArr.length) {
+    setIsAllTouched(true)
+  }
+
+  return currentIsValid
+}
 
 const useForm = <FieldKeys extends string | number | symbol>({
   fields,
   onChange: onFormChange,
 }: useForm<FieldKeys>) => {
-  const possibleFields = Object.keys(fields)
-  type ValuesT = Record<keyof typeof fields, string>
-  const [values, setValues] = useState<ValuesT>(() =>
-    possibleFields.reduce(
+  type Fields = typeof fields
+  const fieldKeys = Object.keys(fields)
+  const [values, setValues] = useState<ValuesT<Fields>>(() =>
+    fieldKeys.reduce(
       (accum, field) => ({ ...accum, [field]: '' }),
-      {} as ValuesT,
+      {} as ValuesT<Fields>,
     ),
   )
-  type ErrorsT = Record<keyof typeof fields, boolean | string>
-  const errors = useRef<ErrorsT>(
-    possibleFields.reduce(
+  const errors = useRef<ErrorsT<Fields>>(
+    fieldKeys.reduce(
       (accum, field) => ({ ...accum, [field]: false }),
-      {} as ErrorsT,
+      {} as ErrorsT<Fields>,
     ),
   )
   const [isValid, setIsValid] = useState(true)
-  type TouchedT = Record<keyof typeof fields, boolean>
-  const touched = useRef<TouchedT>(
-    possibleFields.reduce(
+  const touched = useRef<TouchedT<Fields>>(
+    fieldKeys.reduce(
       (accum, field) => ({ ...accum, [field]: false }),
-      {} as TouchedT,
+      {} as TouchedT<Fields>,
     ),
   )
   const [isAllTouched, setIsAllTouched] = useState(false)
-  const isTouched = useRef(false)
+  // emulate useState interface with useRef
+  const [isTouched, setIsTouched] = [
+    useRef(false),
+    (val: Parameters<Dispatch<SetStateAction<boolean>>>[0]) =>
+      (isTouched.current =
+        typeof val === 'function' ? val(isTouched.current) : val),
+  ]
+  // easy to use with revalidateForm function
+  const revalidateFormArgs = {
+    fields,
+    errors: errors.current,
+    touched: touched.current,
+    setIsValid,
+    setIsTouched,
+    setIsAllTouched,
+  } as const
 
-  const onSubmit = () => {
-    let currentIsValid = true
-
-    isTouched.current = true
-    possibleFields.forEach(field => {
-      const currentField = field as keyof typeof fields
-      touched.current[currentField] = true
-
-      if (currentIsValid) {
-        currentIsValid = !errors.current[currentField]
-      }
-    })
-
-    setIsAllTouched(true)
-    setIsValid(currentIsValid)
-  }
   const onFieldChange = useCallback(
     (field: keyof typeof fields) => () => {
       const fieldElement = fields[field].current
       const newValue = fieldElement?.value
-      let newError: string | boolean = !fieldElement?.validity?.valid
 
       touched.current[field] = true
-      isTouched.current = true
-
-      if (!fieldElement?.validity?.valid) {
-        newError = fieldElement?.validationMessage || true
-        errors.current[field] = newError
-        setIsValid(false)
-      } else {
-        errors.current[field] = false
-      }
 
       setValues(prev => ({
         ...prev,
@@ -81,39 +128,48 @@ const useForm = <FieldKeys extends string | number | symbol>({
       }))
 
       onFormChange?.(field, newValue, fieldElement)
+      revalidateForm(revalidateFormArgs)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [possibleFields.join(), onFormChange],
+    [fieldKeys.join(), onFormChange],
   )
+  const onReset = () => {
+    const newValues = {} as ValuesT<Fields>
 
-  useEffect(() => {
-    let currentIsValid = true
-    let currentTouched = 0
+    fieldKeys.forEach(field => {
+      const currentField = field as keyof Fields
+      const fieldElement = fields[currentField]?.current
 
-    for (let i = 0; i < possibleFields.length; i++) {
-      const field = possibleFields[i] as keyof typeof fields
-      errors.current[field] = fields[field]?.current?.validationMessage || false
-
-      if (errors.current[field] !== false) {
-        if (currentIsValid && touched.current[field] === true) {
-          currentIsValid = false
-        }
-        if (touched.current[field] === true) {
-          currentTouched += 1
-        }
+      touched.current[currentField] = false
+      newValues[currentField] = ''
+      if (fieldElement) {
+        fieldElement.value = ''
       }
+    })
+
+    setValues(newValues)
+    revalidateForm(revalidateFormArgs)
+  }
+  const onSubmit = () => {
+    fieldKeys.forEach(field => {
+      const currentField = field as keyof Fields
+      touched.current[currentField] = true
+    })
+
+    const isValid = revalidateForm(revalidateFormArgs)
+
+    if (isValid) {
+      onReset()
     }
 
-    setIsValid(currentIsValid)
-    if (currentTouched === possibleFields.length) {
-      setIsAllTouched(true)
+    return {
+      isValid,
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [possibleFields.join(), values])
+  }
 
   useEffect(() => {
-    const events = possibleFields.map(field => {
-      const oneOfFields = field as keyof typeof fields
+    const events = fieldKeys.map(field => {
+      const oneOfFields = field as keyof Fields
 
       return [oneOfFields, onFieldChange(oneOfFields)] as const
     })
@@ -132,7 +188,7 @@ const useForm = <FieldKeys extends string | number | symbol>({
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [possibleFields.join(), onFormChange])
+  }, [fieldKeys.join(), onFormChange])
 
   return {
     values,
@@ -141,6 +197,7 @@ const useForm = <FieldKeys extends string | number | symbol>({
     isTouched: isTouched.current,
     isAllTouched,
     isValid,
+    onReset,
     onSubmit,
   }
 }
