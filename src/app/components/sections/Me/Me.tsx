@@ -83,7 +83,7 @@ export default function Me({ Footer = Fragment }: Props) {
             <S.AvatarWrapper>
               <Image
                 css={S.Avatar}
-                src="/avatar_square.png"
+                src="/avatar_square.jpg"
                 alt="avatar"
                 width={180}
                 height={180}
