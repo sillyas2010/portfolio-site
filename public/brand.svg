@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
+  height="512" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+  <circle r="16" cx="16" cy="16" fill="#020617" shape="circle"></circle>
+  <g transform="matrix(0.7,0,0,0.7,4.799999713897705,4.800086259841919)">
+    <g data-name="program, code, coding">
+      <path
+        d="M18.316 9.052a.999.999 0 0 0-1.265.632l-4 12a1 1 0 0 0 1.898.632l4-12a.999.999 0 0 0-.633-1.264zM10.707 11.293a1 1 0 0 0-1.414 0l-4 4a1 1 0 0 0 0 1.414l4 4a1 1 0 0 0 1.414-1.414L7.414 16l3.293-3.293a1 1 0 0 0 0-1.414zM26.707 15.293l-4-4a1 1 0 0 0-1.414 1.414L24.586 16l-3.293 3.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414z"
+        fill="#f97316" opacity="1" class=""></path>
+    </g>
+  </g>
+</svg>
