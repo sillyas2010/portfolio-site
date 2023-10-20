@@ -48,7 +48,7 @@ export default function Me({ Footer = Fragment }: Props) {
             </S.Description>
             <div className="mt-12 inline-flex flex-col sm:flex-row gap-4">
               <Button
-                href={getNavAnchor({ key: NavKeys.contact })}
+                href={`#${getNavAnchor({ key: NavKeys.contact })}`}
                 title="Contact Me"
                 $variant={variants.primary}
                 iconRight={
