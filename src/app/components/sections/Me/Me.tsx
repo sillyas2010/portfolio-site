@@ -3,12 +3,7 @@ import IconWrapper, { sizes } from '@/app/components/IconWrapper'
 import Socials from '@/app/components/Socials'
 import Typewriter from '@/app/components/TypeWriter/Typewriter'
 import { socials } from '@/app/constants'
-import {
-  careerDescriptionText,
-  email,
-  name,
-  subTitle,
-} from '@/app/constants/texting'
+import { careerDescriptionText, name, subTitle } from '@/app/constants/texting'
 import { NavKeys } from '@/app/types'
 import getNavAnchor from '@/app/utils/getNavAnchor'
 import SendIcon from '@/public/icons/send.svg'
@@ -53,7 +48,7 @@ export default function Me({ Footer = Fragment }: Props) {
             </S.Description>
             <div className="mt-12 inline-flex flex-col sm:flex-row gap-4">
               <Button
-                href={`mailto:${email}`}
+                href={getNavAnchor({ key: NavKeys.contact })}
                 title="Contact Me"
                 $variant={variants.primary}
                 iconRight={
