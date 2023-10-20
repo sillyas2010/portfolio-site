@@ -4,9 +4,10 @@ const metaTitle = 'Illia Hloza developer portfolio'
 const metaDescription =
   'Web developer with large variety of technical skills (React, Typescript, Next.JS, Node.JS)'
 const prodDomain = 'illia-hloza.pp.ua'
-const websiteDomain = process.env.NODE_ENV
-  ? prodDomain
-  : process.env.VERCEL_URL || process.env.NEXT_PUBLIC_DOMAIN
+const websiteDomain =
+  process.env.NODE_ENV === 'production'
+    ? prodDomain
+    : process.env.VERCEL_URL || process.env.NEXT_PUBLIC_DOMAIN
 
 export const metadata: Metadata = {
   title: {

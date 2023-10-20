@@ -4,28 +4,32 @@ import Globe from '@/app/components/Globe'
 import Link from '@/app/components/Link'
 import SectionTitle from '@/app/components/SectionTitle'
 import { email } from '@/app/constants/texting'
+import useColorScheme from '@/app/hooks/useColorScheme'
 import useForm from '@/app/hooks/useForm'
+import { verifyCaptcha } from '@/app/server/recaptcha'
 import { NavKeys } from '@/app/types'
 import getNavAnchor from '@/app/utils/getNavAnchor'
-import React, { FormEvent, useRef } from 'react'
+import { useFormspark } from '@formspark/use-formspark'
+import React, { FormEvent, useRef, useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
+import { formSparkForm, recaptchaSiteKey } from './constants'
 import * as S from './styled'
 
-const constructContactFormAction = ({
+const constructContactForm = ({
   name,
   subject,
   social,
   message,
 }: Record<string, string>) => {
   const nameString = name ? `${name} ` : ''
-  const contactInfoString = social ? ` (${social}) ` : ''
-  const subjectString =
-    nameString + contactInfoString + (subject ? `: ${subject}` : '')
-  const params = new URLSearchParams([
-    ...(subjectString ? [['subject', subjectString]] : []),
-    ...(message ? [['body', message]] : []),
-  ]).toString()
+  const socialInfoString = social ? `(${social})` : ''
+  const contact = nameString + socialInfoString
 
-  return `mailto:${email}?${params}`
+  return {
+    contact,
+    subject,
+    message,
+  }
 }
 
 function Contact() {
@@ -35,17 +39,31 @@ function Contact() {
     subject: useRef<HTMLInputElement>(null),
     message: useRef<HTMLTextAreaElement>(null),
   } as const
-  const { values, touched, errors, isTouched, isValid, onSubmit } = useForm({
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
+  const [isVerified, setIsVerified] = useState(false)
+  const { isDark } = useColorScheme()
+  const { touched, errors, isTouched, isValid, onSubmit } = useForm({
     fields,
   })
+  const [submit, isLoading] = useFormspark({
+    formId: formSparkForm,
+  })
+
   const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { isValid } = onSubmit()
+    const { isValid, values } = onSubmit()
+    const formContent = constructContactForm(values)
 
-    if (isValid) {
-      const action = constructContactFormAction(values)
+    if (isValid && isVerified) {
+      submit(formContent)
+    }
+  }
 
-      window.open(action, '_blank')
+  const handleCaptchaSubmission = async (token: string | null) => {
+    if (token) {
+      await verifyCaptcha(token)
+        .then(() => setIsVerified(true))
+        .catch(() => setIsVerified(false))
     }
   }
 
@@ -93,7 +111,6 @@ function Contact() {
                 )
               }
               $touched={touched.name}
-              minLength={8}
               ref={fields.name}
               type="name"
               id="name"
@@ -132,11 +149,22 @@ function Contact() {
               required
             />
 
+            <S.CaptchaWrapper>
+              <ReCAPTCHA
+                sitekey={recaptchaSiteKey}
+                ref={recaptchaRef}
+                theme={isDark ? 'dark' : 'light'}
+                onChange={handleCaptchaSubmission}
+                onErrored={() => setIsVerified(false)}
+                onExpired={() => setIsVerified(false)}
+              />
+            </S.CaptchaWrapper>
+
             <S.ButtonWrapper>
               <Button
                 type="submit"
                 title="Contact"
-                disabled={isTouched && !isValid}
+                disabled={(isTouched && !isValid) || !isVerified || isLoading}
                 $isFull
                 $variant={variants.primary}
               >

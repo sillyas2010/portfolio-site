@@ -94,14 +94,16 @@ const useForm = <FieldKeys extends string | number | symbol>({
     })
 
     const isValid = revalidateForm(revalidateFormArgs)
+    const payload = {
+      isValid,
+      values,
+    }
 
     if (isValid) {
       onReset()
     }
 
-    return {
-      isValid,
-    }
+    return payload
   }
 
   useEffect(() => {

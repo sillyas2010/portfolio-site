@@ -45,6 +45,9 @@ export const NoticeText = styled.p`
 
 export const Form = styled.form``
 
+export const CaptchaWrapper = styled.div`
+  ${tw`mb-4`}
+`
 export const ButtonWrapper = styled.div`
   & > * {
     ${tw`leading-9`}
