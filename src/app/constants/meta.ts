@@ -7,7 +7,7 @@ const prodDomain = 'illia-hloza.pp.ua'
 const websiteDomain =
   process.env.NODE_ENV === 'production'
     ? prodDomain
-    : process.env.VERCEL_URL || process.env.NEXT_PUBLIC_DOMAIN
+    : process.env.NEXT_PUBLIC_DOMAIN || process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   title: {
