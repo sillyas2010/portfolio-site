@@ -6,6 +6,7 @@ import { socials } from '@/app/constants'
 import { careerDescriptionText, name, subTitle } from '@/app/constants/texting'
 import { NavKeys } from '@/app/types'
 import getNavAnchor from '@/app/utils/getNavAnchor'
+import scrollToAnchor from '@/app/utils/scrollToAnchor'
 import SendIcon from '@/public/icons/send.svg'
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
@@ -18,6 +19,7 @@ interface Props {
 
 export default function Me({ Footer = Fragment }: Props) {
   const wrapperRef = useRef(null)
+  const contactAnchor = `#${getNavAnchor({ key: NavKeys.contact })}`
 
   return (
     <S.Wrapper id={getNavAnchor({ key: NavKeys.intro })} ref={wrapperRef}>
@@ -48,7 +50,10 @@ export default function Me({ Footer = Fragment }: Props) {
             </S.Description>
             <div className="mt-12 inline-flex flex-col sm:flex-row gap-4">
               <Button
-                href={`#${getNavAnchor({ key: NavKeys.contact })}`}
+                href={contactAnchor}
+                onClick={e =>
+                  scrollToAnchor(e, 'Contact', contactAnchor, false)
+                }
                 title="Contact Me"
                 $variant={variants.primary}
                 iconRight={

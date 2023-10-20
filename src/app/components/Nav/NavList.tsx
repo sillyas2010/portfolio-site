@@ -1,6 +1,6 @@
 'use client'
-import breakpoints from '@/app/constants/breakpoints'
 import { NavItem } from '@/app/types'
+import scrollToAnchor, { LinkClickEvent } from '@/app/utils/scrollToAnchor'
 import Link from 'next/link'
 import React, { ElementType, Fragment, MouseEventHandler } from 'react'
 import { NavListItem } from './styled'
@@ -20,24 +20,6 @@ interface Props {
   >
   setActiveLink: (val: string) => void
   activeLink: string
-}
-
-type LinkClickEvent = React.MouseEvent<HTMLAnchorElement, MouseEvent>
-
-const scrollToAnchor = (e: LinkClickEvent, title: string, link: string) => {
-  const targetElement = document.querySelector(link)
-
-  if (targetElement) {
-    e.preventDefault()
-    setTimeout(
-      () => {
-        targetElement.scrollIntoView({ behavior: 'smooth' })
-        history.pushState({}, title, link)
-      },
-      // fix for fixed html/body on mobile
-      window.innerWidth >= breakpoints.md ? 0 : 200,
-    )
-  }
 }
 
 export default function NavList({
