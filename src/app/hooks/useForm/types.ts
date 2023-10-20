@@ -12,6 +12,7 @@ export interface useForm<
     value?: string,
     fieldElement?: HTMLInputElement | HTMLTextAreaElement | null,
   ) => void
+  isResetOnSubmit?: boolean
 }
 export type ValuesT<Fields> = Record<keyof Fields, string>
 export type ErrorsT<Fields> = Record<keyof Fields, boolean | string>

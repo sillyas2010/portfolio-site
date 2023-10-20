@@ -12,6 +12,7 @@ import revalidateForm from './utils/revalidateForm'
 const useForm = <FieldKeys extends string | number | symbol>({
   fields,
   onChange: onFormChange,
+  isResetOnSubmit,
 }: useForm<FieldKeys>) => {
   type Fields = typeof fields
   const fieldKeys = Object.keys(fields)
@@ -95,11 +96,12 @@ const useForm = <FieldKeys extends string | number | symbol>({
 
     const isValid = revalidateForm(revalidateFormArgs)
     const payload = {
+      onReset,
       isValid,
       values,
     }
 
-    if (isValid) {
+    if (isValid && isResetOnSubmit) {
       onReset()
     }
 

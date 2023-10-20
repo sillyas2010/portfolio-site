@@ -29,6 +29,14 @@ export const TextArea = styled.textarea<StyledField>(() => [
   tw`h-32 resize-none leading-6`,
 ])
 
+const validationCommon = tw`mt-3 text-xs`
+
 export const ValidationError = styled.p`
-  ${tw`mt-2 text-xs text-red-500`}
+  ${validationCommon}
+  ${tw`text-red-500`}
+`
+
+export const ValidationSuccess = styled.p`
+  ${validationCommon}
+  ${tw`text-green-600`}
 `

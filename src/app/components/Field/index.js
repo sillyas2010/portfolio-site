@@ -1,2 +1,2 @@
 export { default } from './Field'
-export { ValidationError } from './styled'
+export { ValidationError, ValidationSuccess } from './styled'

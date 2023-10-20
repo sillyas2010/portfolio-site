@@ -1,5 +1,8 @@
 import Button, { variants } from '@/app/components/Button'
-import Field, { ValidationError } from '@/app/components/Field'
+import Field, {
+  ValidationError,
+  ValidationSuccess,
+} from '@/app/components/Field'
 import Globe from '@/app/components/Globe'
 import Link from '@/app/components/Link'
 import SectionTitle from '@/app/components/SectionTitle'
@@ -10,9 +13,17 @@ import { verifyCaptcha } from '@/app/server/recaptcha'
 import { NavKeys } from '@/app/types'
 import getNavAnchor from '@/app/utils/getNavAnchor'
 import { useFormspark } from '@formspark/use-formspark'
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { FormEvent, useEffect, useRef, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { formSparkForm, recaptchaSiteKey } from './constants'
+import {
+  OneOfSubmitValidationTypes,
+  captchaValidationError,
+  formSparkForm,
+  recaptchaSiteKey,
+  submitError,
+  submitSuccess,
+  submitValidationTypes,
+} from './constants'
 import * as S from './styled'
 
 const constructContactForm = ({
@@ -40,6 +51,10 @@ function Contact() {
     message: useRef<HTMLTextAreaElement>(null),
   } as const
   const recaptchaRef = useRef<ReCAPTCHA>(null)
+  const [validationMessage, setValidationMessage] = useState<{
+    type: OneOfSubmitValidationTypes
+    text: string
+  } | null>(null)
   const [isVerified, setIsVerified] = useState(false)
   const { isDark } = useColorScheme()
   const { touched, errors, isTouched, isValid, onSubmit } = useForm({
@@ -51,21 +66,58 @@ function Contact() {
 
   const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { isValid, values } = onSubmit()
+    const { isValid, values, onReset } = onSubmit()
     const formContent = constructContactForm(values)
 
     if (isValid && isVerified) {
       submit(formContent)
+        .then(() => {
+          onReset()
+          setValidationMessage({
+            type: submitValidationTypes.success,
+            text: submitSuccess,
+          })
+        })
+        .catch(() =>
+          setValidationMessage({
+            type: submitValidationTypes.error,
+            text: submitError,
+          }),
+        )
     }
   }
 
-  const handleCaptchaSubmission = async (token: string | null) => {
+  const handleCaptchaSubmission = (token: string | null) => {
     if (token) {
-      await verifyCaptcha(token)
-        .then(() => setIsVerified(true))
-        .catch(() => setIsVerified(false))
+      verifyCaptcha(token)
+        .then(() => {
+          setIsVerified(true)
+        })
+        .catch(() => {
+          recaptchaRef.current?.reset?.()
+          setIsVerified(false)
+          setValidationMessage({
+            type: submitValidationTypes.error,
+            text: captchaValidationError,
+          })
+        })
     }
   }
+
+  useEffect(() => {
+    if (validationMessage) {
+      setTimeout(() => setValidationMessage(null), 5000)
+    }
+  }, [validationMessage])
+
+  const formValidationContent =
+    (validationMessage?.type === submitValidationTypes.error && (
+      <ValidationError>{validationMessage.text}</ValidationError>
+    )) ||
+    (validationMessage?.type === submitValidationTypes.success && (
+      <ValidationSuccess>{validationMessage.text}</ValidationSuccess>
+    )) ||
+    null
 
   return (
     <S.Contact id={getNavAnchor({ key: NavKeys.contact })}>
@@ -172,10 +224,12 @@ function Contact() {
               </Button>
             </S.ButtonWrapper>
           </S.Form>
-          <S.FormInfo>
-            Form submit will trigger opening your email client with predefined
-            values.
-          </S.FormInfo>
+          {formValidationContent || (
+            <S.FormInfo>
+              This will trigger sending me email notify, so that I can reach you
+              out.
+            </S.FormInfo>
+          )}
         </S.Right>
       </S.Content>
     </S.Contact>
