@@ -16,6 +16,7 @@ export default function MacBookModel() {
       </Stage>
       <OrbitControls
         enableZoom={false}
+        enablePan={false}
         autoRotate={true}
         autoRotateSpeed={0.5}
         minPolarAngle={Math.PI / 2}
