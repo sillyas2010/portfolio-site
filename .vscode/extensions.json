@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+    "styled-components.vscode-styled-components",
+		"lightyen.tailwindcss-intellisense-twin",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "aaron-bond.better-comments",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+	]
+}
